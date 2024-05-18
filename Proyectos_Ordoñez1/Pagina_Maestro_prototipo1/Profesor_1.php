@@ -12,7 +12,7 @@
     <div id="Color_arriba0"></div>
     <div id="Color_arriba1"></div>
 
-    <Header id="cabeza"> <!-- esta es la cabeza-->
+    <Header id="cabeza"> 
         <article id="Info_usuario">
             <input id="Imagen0" type="image" src="icon_usuario.PNG" alt="Enviar" width="60px" height="60px">
             <div id="Info_usuario1">
