@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<tie></title>
+	<link rel="stylesheet" type="text/css" href="Listar_Alumnos_Profesor.css">
+</head>
+<body>
+    <div id="total">
+    <div id="Prinsipal">
+
+    	<div id="Color_arriba0"></div>
+	    <div id="Color_arriba1"></div>
+
+    	<header id="cabeza">
+    		<article id="Info_usuario">
+                <input id="Imagen0" type="image" src="icon_usuario.PNG" alt="Enviar" width="60px" height="60px">
+                <a href=""></a>
+                <div id="Info_usuario1">
+            	    <p>Nombre del Profesor:</p>
+                    <p>Numero de cuenta:</p>
+               </div>
+            </article>
+
+            <article id="Info_ListAlumn">
+            	<div>
+            		Listar Alumnos:
+            	</div>
+            </article>
+
+            <article id="cerrar_secion0">
+            	<a href="?opc=cerrar_secion"> <li>Cerrar Secion</li> </a>
+                <input id="Imagen0" type="image" src="Icon_salir.PNG" alt="Enviar" width="30px" height="30px">
+            </article>
+    	</header>
+
+    	<section>
+    		<article id="Acciones">
+    			<div id="Tabla0">
+    				<header id="Titulo_Tabla">
+    					<p>Alumnos:</p>
+    				</header>
+
+                    <section>
+                        <?php
+                        require_once("Contacto.php"); // Incluye el archivo Contacto.php que contiene la definición de la clase Contacto
+
+                        $obj = new contacto(); // Crea una nueva instancia de la clase Contacto
+
+                        $matricula_profesor = 1001; // Define la matrícula del profesor a consultar
+
+                        $resultado = $obj->consultar_Materias($matricula_profesor); // Llama al método consultar_Materias de la clase Contacto, pasando la matrícula del profesor como parámetro y almacena el resultado en la variable $resultado
+
+                        // Verifica si la consulta devolvió algún resultado
+                        if ($resultado->num_rows > 0) {
+                        // Si hay resultados, recorre cada fila del resultado
+                        while ($fila = $resultado->fetch_assoc()) {
+                        // Muestra el nombre de la materia como un enlace HTML
+                            echo '<a href="?opc=materia">' . $fila["nombre"] . '</a>';
+                            echo '<br>'; // Salto de línea para separar cada materia
+                        }
+                        } else {
+                            // Si no hay resultados, muestra un mensaje indicando que el profesor no imparte ninguna materia
+                            echo "El profesor no imparte ninguna materia.";
+                        }
+
+
+                        if (isset($_REQUEST["opc"])) {
+
+                            $Materia_Elegida = $_REQUEST["opc"];
+                            $resultado = $obj->consultar_Grupos($matricula_profesor, $Materia_Elegida);
+                            if ($resultado->num_rows > 0) {
+                            // Mostrar las materias
+                                while ($fila = $resultado->fetch_assoc()) {
+                                    echo '<a href="?opc=Grupo">' . $fila["semestre"] . '</a>';
+                                    echo '<br>';
+                                }
+                            } else {
+                                echo "La materia no tiene grupos";
+                            }
+
+                            switch ($_GET["opc"]) {
+                                case 'Materia_1':
+                                    include(".php");
+                                    break;
+                                case 'Materia_2':
+                                    include(".php");
+                                    break;
+                                case 'Materia_3':
+                                    include(".php");
+                                    break;
+                            }
+                        } 
+                    ?>
+                    <!--?php
+                       require_once("Contacto.php");
+                           $obj = new contacto();
+                           $matricula_profesor = 1010;
+                           $resultado = $obj->Listar_Alumnos($matricula_profesor);
+                           echo "<table>";
+                           echo "<tr>";
+                           echo "<th>nombre_completo</th>";
+                           echo "</tr>";
+
+                           while ($alumno = $resultado->fetch_assoc()) {
+                              echo "<tr>";
+                              echo "<td>".$alumno["nombre_completo"]."</td>";
+                              echo "</tr>";
+                            }
+                    ?-->
+                    </section>
+
+    			</div>
+    		</article>
+    	</section>    
+
+    	<footer id="Pie_Pagina"> <p>Correo: Motellano@mtn.com             Celular: 312- 345 - 4321</p> </footer>
+
+
+    </div>
+    </div>	
+</body>
+</html>

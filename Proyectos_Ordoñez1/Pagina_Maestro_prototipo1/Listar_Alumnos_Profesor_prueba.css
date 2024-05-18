@@ -1,0 +1,139 @@
+body {
+    margin: 0px;
+    padding: 0px;
+  
+}
+
+#cabeza {
+    width: 100%;
+    background-color: #0097b2;
+    text-align: center; 
+    padding: 70px; 
+ 
+}
+#Imagen0{
+  float: right;
+  margin-right:80px;
+  
+}
+#cerrar_secion0 {
+    color: white ;
+    background-color: #0cc0df;
+    width: 20%;/*tamaño*/
+    float: right;/*lugar*/
+    padding: 15px;
+    margin-right: 100px;
+  border-radius: 50px;
+   text-decoration: none;
+  
+  
+}
+
+
+#Info_usuario {
+    color: #eef8eb;
+    background-color: #eef8eb;
+    padding: 20px; 
+  
+}
+
+#Imagen1{
+  float: left;
+}
+#Info_usuario1 {
+    background-color: #0cc0df;
+    color: white;
+    float: left;
+    width: 40%;
+    text-align: justify;
+    padding: 10px;
+    font-family: "Open Sans";
+  border-radius:10px;
+  font-size:20px;
+}
+
+
+#Info_ListAlumn {
+    background-color:  #0cc0df;
+    color: white;
+    padding: 50px; 
+    text-align: center;
+  float: right;
+  width: 600px;
+  border-radius: 40px;
+  font-size: 30px;
+}
+
+
+#Tabla0 {
+    background: #0cc0df;
+    text-align: center;
+    width: 60%;
+    padding: 0px; 
+  border-radius: 50px;
+}
+
+#Acciones
+{
+  width:150%;
+ margin-top:150px;
+  float:center;
+  margin-left:5%;
+  
+}
+#Titulo_Tabla {
+   
+    color: white;
+    background-color: #0097b2;
+    text-align: center; 
+  padding:1px;
+ font-size:50px;
+  border-radius: 50px;
+}
+
+#Contenedor_Tabla {
+    padding: 100px ; 
+  border-radius: 50px;
+   
+}
+
+
+#Botones1{
+  float:left;
+  border-radius:20px;
+    background-color: #0097b2;
+    padding: 10px 60px; 
+    color: white;
+  font-size:30px;
+  text-decoration: none;
+}
+#Botones2{
+  display: inline-block; 
+   font-size:30px;
+  border-radius:20px;
+    background-color: #0097b2;
+    padding: 10px 60px; 
+    color: white;
+  text-decoration: none;
+}
+#Botones3 {
+    float: right;
+  font-size:30px;
+  border-radius:20px;
+    background-color: #0097b2;
+    padding: 10px 60px; 
+    color: white;
+  text-decoration: none;
+  
+}
+
+
+#Pie_Pagina {
+    color: white;
+    background-color: #0097b2;
+    text-align: center;
+    padding: 1px;
+  margin-top:100px;
+    
+}
+

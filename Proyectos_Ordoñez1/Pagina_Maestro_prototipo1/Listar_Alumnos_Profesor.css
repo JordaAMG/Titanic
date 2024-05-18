@@ -1,0 +1,82 @@
+@media(max-width: 600px){
+
+}
+
+@media(min-width: 600px) and (max-width: 1200px){
+	
+}
+
+@media(min-width: 1200px){
+	*{
+		margin: auto;
+		padding: auto;
+	}
+
+	#Color_arriba0{
+		background: #4372A1;
+		padding: 30px;
+	}
+
+	#Color_arriba1{
+		background: #3E5E7F;
+		padding: 20px;
+	}
+
+	#cabeza{
+	    margin: 0 auto; /* Centrar horizontalmente */
+	    padding: 10px;
+	    display: flex;
+        align-items: stretch;
+	}
+
+	#Info_usuario{
+		background: #0097B2;
+		width: 40%;
+	    padding: 10px;
+	    margin: 10px;
+	    height: 10%;
+	    border-radius: 25px; /* Define el radio de las esquinas */
+	    /*display: inline-table;*/
+	    font-size: 28px; 
+	    float: left;
+	    /*display: flex;
+        align-items: stretch;*/
+	}
+
+	#Info_ListAlumn{
+		background: #7D7670;
+		width: 15%;
+	    padding: 10px;
+	    margin: 10px;
+	    height: 10%;
+	    border-radius: 25px; /* Define el radio de las esquinas */
+	    display: inline-table;
+	    font-size: 28px; 
+	    float: center;
+
+	}
+
+	#cerrar_secion0{
+		background: #0097B2;
+		width: 10%; 
+	    padding: 10px;
+	    margin: 10px;
+	    height: 10%;
+	    border-radius: 25px; /* Define el radio de las esquinas */
+	    display: inline-table;
+	    float: right;
+	    font-size: 19px;
+	}
+
+	#Imagen0{
+		float: inline-start;
+		margin: 5px;
+	}
+
+	#Info_usuario1{
+		float: inline-start;
+		margin: 5px;
+	}
+
+
+}
