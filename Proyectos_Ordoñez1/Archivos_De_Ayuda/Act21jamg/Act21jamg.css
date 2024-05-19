@@ -1,0 +1,95 @@
+*{
+	margin: 0;
+	background: #81B6B9;
+}
+#agrupar {
+	width: 90%; /* Tamaño de mi caja en mi pantalla */
+	margin: 15px auto; /* Margen del interior de información a la caja */
+	text-align: justify; /* Todo lo quiero a mi lado izquierdo */
+	padding: 5px;
+}
+
+#cabeza {
+	border: 2px solid blue; /* El borde de la cabecera */
+	text-align: left; /* Alineación del texto */
+	color: #DD133B; 
+	font: Verdana, Calibri, sans-serif;
+	font-size: 32px;
+	padding: 10px;
+	padding-bottom: 30px;
+	padding-top: 30px;
+}
+
+#menu {
+	width: 97%;
+	margin: 20px auto; 
+	float: left; 
+	padding: 10px;
+	border: 3px solid grey;
+	font: Verdana, Calibri, sans-serif;
+	font-size: 24px;
+}
+
+#esp3{
+	color: #367338;
+}
+
+#esp2{
+	border: 2px solid yellow;
+	width: 99%;
+	margin: 10px 0;
+	font: Verdana, Calibri, sans-serif;
+	font-size: 24px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#esp1{
+	color: #E1DF48;
+	font-size: 20px;
+}
+
+#seccion {
+	width: 100%;
+	margin: 10px;
+	float: left;
+	line-height: 1.6;
+	padding: 10px;
+	border: 2px solid grey; 
+	font: Verdana, Calibri, sans-serif;
+	font-size: 24px;
+	color: #367338;
+}
+
+#esp4{
+	width: 100%;
+	margin: 10px;
+	float: left;
+	line-height: 1.6;
+	padding: 10px;
+	border: 2px solid grey; 
+	font: Verdana, Calibri, sans-serif;
+	font-size: 24px;
+	color: #367338;
+}
+
+#esp5{
+	border: 2px solid yellow; /* El borde de la cabecera */
+	text-align: left; /* Alineación del texto */ 
+	font: Georgia, Cambria, serif;
+	font-size: 16px;
+
+}
+
+#esp6{
+	color: #FDFDFD;
+	background: #000000;
+	font-style: italic;
+}
+
+#esp7{
+	text-align: left; /* Alineación del texto */ 
+	font: Georgia, Cambria, serif;
+	font-size: 16px;
+}
+
