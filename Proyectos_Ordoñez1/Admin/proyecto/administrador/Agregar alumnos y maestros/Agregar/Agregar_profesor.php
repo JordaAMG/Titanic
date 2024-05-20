@@ -26,7 +26,7 @@
         $correo = $_REQUEST['correo'];
         $contraseña= $_REQUEST['contraseña'];
 
-        require_once '../../../contacto.php';
+        require_once 'contacto.php';
 
         $obj = new Contacto();
 

@@ -27,7 +27,7 @@ if (isset($_REQUEST['agregar_alumno'])) {
     $correo = $_REQUEST['correo'];
     $id_semestre = $_REQUEST['id_semestre'];
 
-    require_once '../../../contacto.php';
+    require_once 'contacto.php';
 
     $obj = new Contacto();
     
