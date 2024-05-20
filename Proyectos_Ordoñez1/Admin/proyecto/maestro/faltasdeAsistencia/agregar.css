@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; 
+    color: #000000; 
+    margin: 0;
+    padding: 0;
+}
+
+.ingreso {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #007bff; /* Blue/Azul*/
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="submit"] {
+    background-color: #007bff; 
+    color: #ffffff; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Azul oscuro */
+}
+
+select, input[type="number"] {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+
