@@ -9,6 +9,8 @@
         $bandera = $this->ejecutar_sentencia();
       }
 
+    //lol
+      
     //Metdodo para agregar alumnos
       public function agregar_alumno($matricula_alumno,$contraseña,$nombre_completo, $correo,$id_semestre){
          $this->sentencia = "INSERT INTO alumnos VALUES ($matricula_alumno,'$contraseña','$nombre_completo','$correo',$id_semestre)";
