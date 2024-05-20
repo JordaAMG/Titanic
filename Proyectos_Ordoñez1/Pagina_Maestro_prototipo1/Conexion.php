@@ -3,7 +3,7 @@
     private $host = 'localhost';
     private $usuario= 'root';
     private $password = '';
-    private $base = 'hanabi';
+    private $base = 'Titanic';
     public $sentencia;
     private $rows = array();
     private $conexion;

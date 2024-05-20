@@ -36,10 +36,10 @@
 
       //Este sirve
       public function consultar_Grupos($matricula_profesor) {
-      $this->sentencia = "SELECT 
-         FROM semestre 
+      $this->sentencia = "SELECT nombre_grupo
+         FROM grupos 
          INNER JOIN materias 
-         ON semestre.id_semestre = materias.id_semestre
+         ON grupos.id_grupo = materias.id_materia
          INNER JOIN profesores 
          ON materias.matricula_profesor = profesores.matricula_profesor
          WHERE profesores.matricula_profesor = $matricula_profesor";
