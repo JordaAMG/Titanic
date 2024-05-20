@@ -1,0 +1,67 @@
+#caja1{
+  background-color:#1E90FF;
+  text-align:center;
+}
+#t{
+  text-align:center;
+  color: white;
+  
+}
+#caja2{
+  height:300px;
+  background-color:#03bb85 ;
+  
+  
+  
+}
+#cj
+{
+  background-color:#FFA500;
+  
+}
+#s{
+  color:white;
+  margin-left:550px;
+  
+  
+}
+#se{
+  float:left;
+  border-radius:20px;
+    background-color: #1E90FF;
+    padding: 10px 35px; 
+    color: white;
+  font-size:25px;
+  text-decoration: none;/este quita el marcado de la paginma de3 abajo/
+  list-style: none;/quita el punto del link de la pagina que se dirigue/
+}
+#cu{
+ margin-left:250px;
+  float:left;
+  border-radius:20px;
+    background-color: #1E90FF;
+    padding: 10px 35px; 
+    color: white;
+  font-size:25px;
+  text-decoration: none;/este quita el marcado de la paginma de3 abajo/
+  list-style: none;/quita el punto del link de la pagina que se dirigue/
+}
+#sex{
+  margin-right:100px;
+  float:right;
+  border-radius:20px;
+    background-color: #1E90FF;
+    padding: 10px 35px; 
+    color: white;
+  font-size:25px;
+  text-decoration: none;/este quita el marcado de la paginma de3 abajo/
+  list-style: none;/quita el punto del link de la pagina que se dirigue/
+}
+#Pie_Pagina {
+    color: white;
+    background-color: #1E90FF;
+    text-align: center;
+    padding: 1px;
+  margin-top:10px;
+    
+}
