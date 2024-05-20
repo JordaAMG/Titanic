@@ -13,7 +13,7 @@
 
             <select name="ideliminar">
                 <?php
-                require_once '../../../contacto.php';
+                require_once 'contacto.php';
                 $obj = new Contacto();
                 if (isset($_POST['eliminar']) && isset($_POST['ideliminar'])) {
                     $obj->eliminar_alumno($_POST['ideliminar']);
@@ -33,6 +33,7 @@
 
         <?php
         if (isset($_POST['eliminar'])) {
+            
             echo "<br>Alumno eliminado";
         }
         ?>

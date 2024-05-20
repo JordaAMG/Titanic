@@ -15,7 +15,7 @@
 
 
                <?php 
-                  require_once '../../../contacto.php';
+                  require_once 'contacto.php';
                   $obj = new Contacto();
                   if(isset($_POST['eliminar']) && isset($_POST['ideliminar'])){
                     $obj->eliminar_profesor($_POST['ideliminar']);

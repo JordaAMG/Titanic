@@ -10,8 +10,8 @@
       }
 
     //Metdodo para agregar alumnos
-      public function agregar_alumno($matricula_alumno,$contraseña,$nombre_completo, $correo,$id_semestre){
-         $this->sentencia = "INSERT INTO alumnos VALUES ($matricula_alumno,'$contraseña','$nombre_completo','$correo',$id_semestre)";
+      public function agregar_alumno($matricula_alumno,$contraseña,$nombre_completo, $correo){
+         $this->sentencia = "INSERT INTO alumnos VALUES ($matricula_alumno,'$contraseña','$nombre_completo','$correo')";
          $bandera = $this->ejecutar_sentencia();
     }
 
@@ -20,4 +20,5 @@
          $this->sentencia = "INSERT INTO profesores VALUES ($matricula_profesor, '$contraseña','$nombre_completo', '$correo')";
          $bandera = $this->ejecutar_sentencia();
       }
+    }
   ?>

@@ -14,7 +14,6 @@
         Ingrese el nombre completo del alumno: <input type="text" name="nombre_completo" required><br>
         Ingrese el correo del alumno: <input type="text" name="correo" required><br>
         Ingrese la contraseña: <input type="text" name="contraseña" required><br>
-        Ingrese el número del semestre: <input type="number" name="id_semestre" min="1" max="6" required><br><br>
 
         <input type="submit" name="agregar_alumno" value="Agregar Alumno">
     </form>
@@ -25,7 +24,7 @@ if (isset($_REQUEST['agregar_alumno'])) {
     $contraseña = $_REQUEST['contraseña'];
     $nombre_completo = $_REQUEST['nombre_completo'];
     $correo = $_REQUEST['correo'];
-    $id_semestre = $_REQUEST['id_semestre'];
+  
 
     require_once 'contacto.php';
 
@@ -35,7 +34,7 @@ if (isset($_REQUEST['agregar_alumno'])) {
     $obj->agregar_correo_a_login($correo, $contraseña);
 
     // Luego agregar el alumno a la tabla alumnos
-    $obj->agregar_alumno($matricula_alumno, $contraseña, $nombre_completo, $correo, $id_semestre);
+    $obj->agregar_alumno($matricula_alumno, $contraseña, $nombre_completo, $correo);
     
     echo "Alumno agregado";
 }
