@@ -3,7 +3,7 @@
    Class Contacto extends Conexion{
 
 
-    // Método para agregar correo a la tabla login
+    // Método para agregar correo a la tabla
     public function agregar_correo_a_login($correo,$contraseña){
         $this->sentencia = "INSERT INTO login VALUES ('$correo','$contraseña' )";
         $bandera = $this->ejecutar_sentencia();
