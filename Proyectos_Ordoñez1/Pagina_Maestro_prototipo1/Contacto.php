@@ -34,7 +34,7 @@
       }
 
       public function consultar_Grupos($matricula_profesor, $Materia_Elegida) {
-         $this->sentencia = "SELECT grupos.nombre_grupo 
+         $this->sentencia = "SELECT grupos.nombre_grupo, grupos.id_grupo 
          FROM grupos 
          WHERE grupos.matricula_profesor = $matricula_profesor 
          AND grupos.id_materia = $Materia_Elegida";
@@ -71,16 +71,12 @@
          return $resultado;
       }*/
 
-      public function Listar_Alumnos($matricula_profesor, $Materia_Elegida, $Grupo_Elegido) {
+      public function Listar_Alumnos($Grupo_Elegido) {
          $this->sentencia = "SELECT alumnos.nombre_completo 
          FROM alumnos 
          INNER JOIN grupos 
-         ON alumnos.matricula_alumno = grupos.matricula_alumno 
-         INNER JOIN materias 
-         ON grupos.id_materia = materias.id_materia 
-         WHERE grupos.matricula_profesor = $matricula_profesor 
-         AND grupos.id_materia = $Materia_Elegida 
-         AND grupos.id_grupo = $Grupo_Elegido";
+         ON alumnos.matricula_alumno = grupos.matricula_alumno  
+         WHERE grupos.id_grupo = $Grupo_Elegido";
          $resultado = $this->obtener_sentencia(); 
          return $resultado;
       }
