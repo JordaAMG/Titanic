@@ -33,6 +33,11 @@
          $bandera = $this->ejecutar_sentencia();
          return $bandera;
       }
+
+        public function modificar_login($correo, $contraseña) {
+        $this->sentencia = "UPDATE login SET contraseña = '$contraseña' WHERE correo = '$correo'";
+        $this->ejecutar_sentencia();
+    }
   }
 
 ?>
