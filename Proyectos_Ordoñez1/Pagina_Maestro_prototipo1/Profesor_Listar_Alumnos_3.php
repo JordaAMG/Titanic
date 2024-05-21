@@ -47,7 +47,8 @@
 
                         $obj = new contacto(); // Crea una nueva instancia de la clase Contacto
 
-                        $matricula_profesor = 2; // Define la matrícula del profesor a consultar
+                        $matricula_profesor = 2; // Define la matrícula del profesor a consultar 
+                        //hola brian
 
                         $resultado = $obj->consultar_Materias($matricula_profesor); // Llama al método consultar_Materias de la clase Contacto, pasando la matrícula del profesor como parámetro y almacena el resultado en la variable $resultado
 
