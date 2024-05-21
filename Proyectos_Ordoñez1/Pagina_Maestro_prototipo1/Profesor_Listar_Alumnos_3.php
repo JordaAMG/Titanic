@@ -79,8 +79,8 @@
                             } else {
                                 echo "La materia no tiene grupos";
                             }
-
-                            if (isset($_REQUEST["opc2"])) {
+                        } 
+                        if (isset($_REQUEST["opc2"])) {
 
                                 $Grupo_Elegido = $_REQUEST["opc2"];
                                 $resultado = $obj->Listar_Alumnos($Grupo_Elegido);
@@ -99,7 +99,6 @@
                                     echo "El grupo no tiene alumnos";
                                 }
                             }
-                        } 
                     ?>
                     <!--?php
                        require_once("Contacto.php");
