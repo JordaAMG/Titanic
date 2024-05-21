@@ -82,7 +82,7 @@
                             if (isset($_REQUEST["opc2"])) {
 
                                 $Grupo_Elegido = $_REQUEST["opc2"];
-                                $resultado = $obj->Listar_Alumnos($matricula_profesor, $Materia_Elegida, $Grupo_Elegido);
+                                $resultado = $obj->Listar_Alumnos($Grupo_Elegido);
                                 if ($resultado->num_rows > 0) {
                                     // Mostrar las materias
                                     echo "<table>";
