@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="ingreso">
+    //no son horas 
     <h1>Ingreso de faltas de asistencia</h1>
 <?php
     require_once('Conexion (1).php'); 
