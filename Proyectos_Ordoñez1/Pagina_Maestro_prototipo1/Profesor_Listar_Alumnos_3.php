@@ -47,7 +47,7 @@
 
                         $obj = new contacto(); // Crea una nueva instancia de la clase Contacto
 
-                        $matricula_profesor = 1; // Define la matrícula del profesor a consultar
+                        $matricula_profesor = 2; // Define la matrícula del profesor a consultar
 
                         $resultado = $obj->consultar_Materias($matricula_profesor); // Llama al método consultar_Materias de la clase Contacto, pasando la matrícula del profesor como parámetro y almacena el resultado en la variable $resultado
 
@@ -56,7 +56,7 @@
                         // Si hay resultados, recorre cada fila del resultado
                         while ($fila = $resultado->fetch_assoc()) {
                         // Muestra el nombre de la materia como un enlace HTML
-                            echo '<a href="?opc=materia">' . $fila["nombre"] . '</a>';
+                            echo '<a href="?opc1=' . $fila["id_materia"] . '">' . $fila["nombre"] . '</a>';
                             echo '<br>'; // Salto de línea para separar cada materia
                         }
                         } else {
@@ -65,30 +65,38 @@
                         }
 
 
-                        if (isset($_REQUEST["opc"])) {
+                        if (isset($_REQUEST["opc1"])) {
 
-                            $Materia_Elegida = $_REQUEST["opc"];
+                            $Materia_Elegida = $_REQUEST["opc1"];
                             $resultado = $obj->consultar_Grupos($matricula_profesor, $Materia_Elegida);
                             if ($resultado->num_rows > 0) {
                             // Mostrar las materias
                                 while ($fila = $resultado->fetch_assoc()) {
-                                    echo '<a href="?opc=Grupo">' . $fila["nombre_grupo"] . '</a>';
+                                    echo '<a href="?opc2=' . $fila["id_grupo"] . '">' . $fila["nombre_grupo"] . '</a>';
                                     echo '<br>';
                                 }
                             } else {
                                 echo "La materia no tiene grupos";
                             }
 
-                            switch ($_GET["opc"]) {
-                                case 'Materia_1':
-                                    include(".php");
-                                    break;
-                                case 'Materia_2':
-                                    include(".php");
-                                    break;
-                                case 'Materia_3':
-                                    include(".php");
-                                    break;
+                            if (isset($_REQUEST["opc2"])) {
+
+                                $Grupo_Elegido = $_REQUEST["opc2"];
+                                $resultado = $obj->Listar_Alumnos($matricula_profesor, $Materia_Elegida, $Grupo_Elegido);
+                                if ($resultado->num_rows > 0) {
+                                    // Mostrar las materias
+                                    echo "<table>";
+                                    echo "<tr>";
+                                    echo "<th>nombre_completo</th>";
+                                    echo "</tr>";
+                                    while ($alumno = $resultado->fetch_assoc()) {
+                                        echo "<tr>";
+                                        echo "<td>".$alumno["nombre_completo"]."</td>";
+                                        echo "</tr>";
+                                    }
+                                } else {
+                                    echo "El grupo no tiene alumnos";
+                                }
                             }
                         } 
                     ?>
