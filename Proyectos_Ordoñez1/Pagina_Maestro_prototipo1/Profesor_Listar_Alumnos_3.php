@@ -100,22 +100,7 @@
                                 }
                             }
                     ?>
-                    <!--?php
-                       require_once("Contacto.php");
-                           $obj = new contacto();
-                           $matricula_profesor = 1010;
-                           $resultado = $obj->Listar_Alumnos($matricula_profesor);
-                           echo "<table>";
-                           echo "<tr>";
-                           echo "<th>nombre_completo</th>";
-                           echo "</tr>";
-
-                           while ($alumno = $resultado->fetch_assoc()) {
-                              echo "<tr>";
-                              echo "<td>".$alumno["nombre_completo"]."</td>";
-                              echo "</tr>";
-                            }
-                    ?-->
+                    
                     </section>
 
     			</div>

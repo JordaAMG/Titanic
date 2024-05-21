@@ -23,6 +23,7 @@
          return $resultado;
       }
 
+      //Este sirve(agregar semestre)
       public function consultar_Materias($matricula_profesor){//funcion para saver que materias imparte el maestro
          $this->sentencia = "SELECT materias.nombre, materias.id_materia
          FROM materias 
@@ -42,35 +43,6 @@
          return $resultado;
       }
 
-      //Este sirve(agregar semestre)
-      /*public function consultar_Grupos($matricula_profesor, $Materia_Elegida) {
-      $this->sentencia = "SELECT nombre_grupo
-         FROM grupos 
-         INNER JOIN materias 
-         ON grupos.id_materia = materias.id_materia
-         INNER JOIN profesores 
-         ON materias.matricula_profesor = profesores.matricula_profesor
-         WHERE profesores.matricula_profesor = $matricula_profesor
-         AND materias.id_materia = '$Materia_Elegida'";
-         $resultado = $this->obtener_sentencia();
-         return $resultado;
-      }*/
-
-      //esta es la que al finla debe funcionar
-      /*public function Listar_Alumnos($matricula_profesor) {
-         $this->sentencia = "SELECT alumnos.nombre_completo 
-         FROM alumnos
-         INNER JOIN grupos 
-         ON alumnos.matricula_alumno = grupos.matricula_alumno
-         INNER JOIN materias 
-         ON materias.id_materia = grupos.id_materia
-         INNER JOIN profesores 
-         ON materias.matricula_profesor = profesores.matricula_profesor
-         WHERE profesores.matricula_profesor = $matricula_profesor;";
-         $resultado = $this->obtener_sentencia(); 
-         return $resultado;
-      }*/
-
       public function Listar_Alumnos($Grupo_Elegido) {
          $this->sentencia = "SELECT alumnos.nombre_completo 
          FROM alumnos 
@@ -81,13 +53,25 @@
          return $resultado;
       }
 
-      //por si falla
+      //por si fala
       /*public function Listar_Alumnos(){
          $this->sentencia = "SELECT nombre_completo 
          FROM alumnos;";
          $resultado = $this->obtener_sentencia(); 
          return $resultado;
       }*/
+
+      public function Listar_Faltas($Grupo_Elegido){
+         $this->sentencia = "SELECT alumnos.nombre_completo, asistencias.fecha, asistencias.falta 
+         FROM alumnos
+         INNER JOIN asistencias
+         ON alumnos.matricula_alumno = asistencias.matricula_alumno
+         INNER JOIN grupos
+         ON alumnos.matricula_alumno = grupos.matricula_alumno
+         WHERE grupos.id_grupo = $Grupo_Elegido";
+         $resultado = $this->obtener_sentencia(); 
+         return $resultado;
+      }
 
       public function Listar_Faltas_1(){
          $this->sentencia = "SELECT nombre_completo 
