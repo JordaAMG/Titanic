@@ -33,40 +33,54 @@
          return $resultado;
       }
 
+      public function consultar_Grupos($matricula_profesor, $Materia_Elegida) {
+         $this->sentencia = "SELECT grupos.nombre_grupo 
+         FROM grupos 
+         WHERE grupos.matricula_profesor = $matricula_profesor 
+         AND grupos.id_materia = $Materia_Elegida";
+         $resultado = $this->obtener_sentencia(); 
+         return $resultado;
+      }
 
-      //Este sirve
-      public function consultar_Grupos($matricula_profesor) {
+      //Este sirve(agregar semestre)
+      /*public function consultar_Grupos($matricula_profesor, $Materia_Elegida) {
       $this->sentencia = "SELECT nombre_grupo
          FROM grupos 
          INNER JOIN materias 
-         ON grupos.id_grupo = materias.id_materia
+         ON grupos.id_materia = materias.id_materia
          INNER JOIN profesores 
          ON materias.matricula_profesor = profesores.matricula_profesor
-         WHERE profesores.matricula_profesor = $matricula_profesor";
-         $resultado = $this->obtener_sentencia();
-         return $resultado;
-      }
-      
-      //Estamos probando con esta 
-
-      /*public function consultar_Grupos($Materia_Elegida) {
-         $this->sentencia = "SELECT semestre.semestre, semestre.id_semestre
-         FROM semestre 
-         INNER JOIN materias 
-         ON semestre.id_semestre = materias.id_semestre
-         WHERE materias.nombre = '".$Materia_Elegida."' ";
+         WHERE profesores.matricula_profesor = $matricula_profesor
+         AND materias.id_materia = '$Materia_Elegida'";
          $resultado = $this->obtener_sentencia();
          return $resultado;
       }*/
 
-
       //esta es la que al finla debe funcionar
-      public function Listar_Alumnos($matricula_profesor) {
+      /*public function Listar_Alumnos($matricula_profesor) {
          $this->sentencia = "SELECT alumnos.nombre_completo 
          FROM alumnos
-         INNER JOIN materias ON alumnos.id_semestre = materias.id_semestre
-         INNER JOIN profesores ON materias.matricula_profesor = profesores.matricula_profesor
+         INNER JOIN grupos 
+         ON alumnos.matricula_alumno = grupos.matricula_alumno
+         INNER JOIN materias 
+         ON materias.id_materia = grupos.id_materia
+         INNER JOIN profesores 
+         ON materias.matricula_profesor = profesores.matricula_profesor
          WHERE profesores.matricula_profesor = $matricula_profesor;";
+         $resultado = $this->obtener_sentencia(); 
+         return $resultado;
+      }*/
+
+      public function Listar_Alumnos($matricula_profesor, $Materia_Elegida, $Grupo_Elegido) {
+         $this->sentencia = "SELECT alumnos.nombre_completo 
+         FROM alumnos 
+         INNER JOIN grupos 
+         ON alumnos.matricula_alumno = grupos.matricula_alumno 
+         INNER JOIN materias 
+         ON grupos.id_materia = materias.id_materia 
+         WHERE grupos.matricula_profesor = $matricula_profesor 
+         AND grupos.id_materia = $Materia_Elegida 
+         AND grupos.id_grupo = $Grupo_Elegido";
          $resultado = $this->obtener_sentencia(); 
          return $resultado;
       }
