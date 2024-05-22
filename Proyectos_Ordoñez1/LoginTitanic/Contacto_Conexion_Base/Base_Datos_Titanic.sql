@@ -103,14 +103,11 @@ INSERT INTO login (correo, contraseña) VALUES
 ('profesor5@example.com', 'pass123');
 
 INSERT INTO login (correo, contraseña) VALUES 
-('admin1@example.com', 'adminpass1'),
-('admin2@example.com', 'adminpass2'),
-('admin3@example.com', 'adminpass3');
+('titanic@gmail.com', 'hundido');
 
 INSERT INTO administradores (matricula_admin, contraseña, nombre_completo, correo) VALUES 
-(1, 'adminpass1', 'Admin Uno', 'admin1@example.com'),
-(2, 'adminpass2', 'Admin Dos', 'admin2@example.com'),
-(3, 'adminpass3', 'Admin Tres', 'admin3@example.com');
+(1, 'hundido', 'Titanic', 'titanic@gmail.com');
+
 
 INSERT INTO alumnos (matricula_alumno, contraseña, nombre_completo, correo) VALUES 
 (1, 'pass123', 'Alumno Uno', 'alumno1@example.com'),

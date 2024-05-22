@@ -3,7 +3,7 @@ class Conexion {
     private $host = 'localhost';
     private $usuario = 'root';
     private $password = '';
-    private $base = 'hanabi';
+    private $base = 'titanic';
     public $sentencia;
     private $rows = array();
     private $conexion;

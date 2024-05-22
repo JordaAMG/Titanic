@@ -1,36 +1,48 @@
 <?php
-    if(empty($_POST["btnlogin"])){
-        if (empty($_POST["correo"]) and empty($_POST["contraseña"])) {
-            echo "<span style='color:red;'>LOS CAMPOS ESTAN VACIOS</span>";
-        } else {
-            $correo= $_POST["correo"];
-            $contraseña= $_POST["contraseña"];
-            $conexion = new Conexion;
-            $conexion->sentencia = "SELECT * FROM profesores WHERE correo='$correo' AND contraseña='$contraseña' ";
-            $result = $conexion->obtener_sentencia();
-            if ($result->num_rows > 0) {
-                header("location:inicioprofe.php");
-            } else {
-                echo "<span style='color:red;'>Correo u contraseña incorrectos</span>";
-            }
+include("conexion.php");
 
-            $conexion->sentencia = "SELECT * FROM alumnos WHERE correo='$correo' AND contraseña='$contraseña' ";
-            $result = $conexion->obtener_sentencia();
-            if ($result->num_rows > 0) {
-                header("location:inicioalumno.php");
-            } else {
-                echo "<span style='color:red;'>Correo u contraseña incorrectos</span>";
-            }
-
-            $conexion->sentencia = "SELECT * FROM administradores WHERE correo='$correo' AND contraseña='$contraseña' ";
-            $result = $conexion->obtener_sentencia();
-            if ($result->num_rows > 0) {
-                header("location:inicioadmin.php");
-            } else {
-                echo "<span style='color:red;'>Correo u contraseña incorrectos</span>";
-            }
-            
-        }
+if (isset($_POST["btn_login"])) {
+    $correo = $_POST['correo'];
+    $contraseña = $_POST['contraseña'];
+    
+    $conexion = new Conexion();
+    $conexion->sentencia = "SELECT * FROM login WHERE correo = '$correo' AND contraseña = '$contraseña'";
+    $resultado = $conexion->obtener_sentencia();
+    
+    if ($resultado->num_rows > 0) {
+        // Verificar el rol del usuario
+        $conexion->sentencia = "SELECT * FROM administradores WHERE correo = '$correo'";
+        $resultado_admin = $conexion->obtener_sentencia();
         
+        if ($resultado_admin->num_rows > 0) {
+            // Redirigir a la interfaz de administrador
+            header("Location: inicioadmin.php");
+            exit();
+        } else {
+            $conexion->sentencia = "SELECT * FROM profesores WHERE correo = '$correo'";
+            $resultado_prof = $conexion->obtener_sentencia();
+            
+            if ($resultado_prof->num_rows > 0) {
+                // Redirigir a la interfaz de profesor
+                header("Location: inicioprofe.php");
+                exit();
+            } else {
+                $conexion->sentencia = "SELECT * FROM alumnos WHERE correo = '$correo'";
+                $resultado_alumno = $conexion->obtener_sentencia();
+                
+                if ($resultado_alumno->num_rows > 0) {
+                    // Redirigir a la interfaz de alumno
+                    header("Location: inicioalumno.php");
+                    exit();
+                } else {
+                    // Usuario no encontrado en ninguna tabla
+                    echo "Usuario no encontrado.";
+                }
+            }
+        }
+    } else {
+        // Credenciales incorrectas
+        echo "Correo o contraseña incorrectos.";
     }
+}
 ?>
