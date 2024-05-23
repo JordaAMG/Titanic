@@ -61,7 +61,7 @@
                 </header>
                 <section id="Contenedor_Botones">
                     <br>
-                    <a id="Botones" href="Modificar_Calificaciones.php">Modificar Calificaciones</a><br><br><br>
+                    <a id="Botones" href="Profesor_Modificar_Calificaciones.php">Modificar Calificaciones</a><br><br><br>
                     <a id="Botones" href="Modificar_Faltas_De_Asistencia.php">Modificar Faltas Asistencia</a><br><br><br>
                 </section>
             </div>

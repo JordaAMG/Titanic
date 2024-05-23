@@ -44,7 +44,7 @@
       }
 
       public function Listar_Alumnos($Grupo_Elegido) {
-         $this->sentencia = "SELECT alumnos.nombre_completo 
+         $this->sentencia = "SELECT alumnos.matricula_alumno, alumnos.nombre_completo 
          FROM alumnos 
          INNER JOIN grupos 
          ON alumnos.matricula_alumno = grupos.matricula_alumno  
