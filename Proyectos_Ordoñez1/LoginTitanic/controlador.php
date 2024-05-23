@@ -16,7 +16,7 @@ if (isset($_POST["btn_login"])) {
         
         if ($resultado_admin->num_rows > 0) {
             // Redirigir a la interfaz de administrador
-            header("Location: inicioadmin.php");
+            header("Location: admin/login_administrador/interfaz_administrador.php");
             exit();
         } else {
             $conexion->sentencia = "SELECT * FROM profesores WHERE correo = '$correo'";
