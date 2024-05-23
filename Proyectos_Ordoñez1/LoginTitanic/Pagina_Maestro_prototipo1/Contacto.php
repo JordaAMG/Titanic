@@ -12,9 +12,32 @@
          $bandera = $this->ejecutar_sentencia();
       }
 
-      public function modificar($V_Fecha_Fecha, $Asistencia, $Falta_de_Asistencia, $Justificante, $Alumno_de_Falta, $Materia_de_Falta){
+      public function modificar($Titulo,$Actores,$Director,$Guion,$Produccion,$Anio,$Nacionalidad,$Duracion,$Genero,$Restricciones,$Sinopsis,$id){
+         $this->sentencia = "UPDATE contacto SET Titulo='$Titulo', Actores='$Actores', Director='$Director', Guion='$Guion', Produccion='$Produccion', Anio='$Anio',Nacionalidad='$Nacionalidad', Duracion='$Duracion',Genero='$Genero',Restricciones='$Restricciones',Sinopsis='$Sinopsis' Where id= '$id' ";
+         $bandera = $this->ejecutar_sentencia();
+         return $bandera;
+      }
+
+      public function Modificar_Faltas($V_Fecha_Fecha, $Asistencia, $Falta_de_Asistencia, $Justificante, $Alumno_de_Falta, $Materia_de_Falta){
          $this->sentencia = "UPDATE asistencias SET V_Fecha_Fecha='$V_Fecha_Fecha', Asistencia='$Asistencia', Falta_de_Asistencia='$Falta_de_Asistencia', Justificante='$Justificante', Alumno_de_Falta='$Alumno_de_Falta', Materia_de_Falta=$Materia_de_Falta Where id= '$id' ";
          $bandera = $this->ejecutar_sentencia();
+      }
+
+      public function Consultar_Calificaciones($matricula_alumno){
+         $this->sentencia = "SELECT calificaciones.id_calificacion_parcial, calificaciones.parcial_uno, calificaciones.parcial_dos, calificaciones.parcial_tres  
+         FROM calificaciones
+         INNER JOIN alumnos
+         ON calificaciones.matricula_alumno = alumnos.matricula_alumno
+         WHERE alumnos.matricula_alumno = $matricula_alumno;";
+         $resultado = $this->obtener_sentencia(); 
+         return $resultado;
+      }
+
+      public function Modificar_Calificaciones($parcial_uno, $parcial_dos, $parcial_tres, $id_calificacion_parcial){
+         $this->sentencia = "UPDATE calificaciones SET parcial_uno='$parcial_uno', parcial_dos='$parcial_dos', parcial_tres='$parcial_tres'
+         Where id_calificacion_parcial= '$id_calificacion_parcial' ";
+         $bandera = $this->ejecutar_sentencia();
+         return $bandera;
       }
 
       public function consultar(){

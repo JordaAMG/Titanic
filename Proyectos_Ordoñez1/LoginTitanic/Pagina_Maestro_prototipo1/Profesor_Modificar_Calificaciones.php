@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,6 +81,7 @@
                                 echo "La materia no tiene grupos";
                             }
                         } 
+
                         if (isset($_REQUEST["opc2"])) {
 
                                 $Grupo_Elegido = $_REQUEST["opc2"];
@@ -93,8 +95,75 @@
                                 } else {
                                     echo "El grupo no tiene alumnos";
                                 }
+                        }
+
+                        if (isset($_REQUEST["opc3"])) {
+                            $matricula_alumno = $_REQUEST["opc3"];
+                            ?>
+                            <form action="" method="post" >
+                            <select name="idmodificar">
+                            <?php
+                                require_once("Contacto.php");
+                                $obj = new contacto();
+                                $resultado = $obj->Consultar_Calificaciones($matricula_alumno);
+                                while ($registro = $resultado->fetch_assoc()) {
+                                    echo "<option value='".$registro['id_calificacion_parcial']."'>".$registro["parcial_uno"].".".$registro["parcial_dos"].".".$registro["parcial_tres"]."</option>";
+                                }
+                            ?>
+                            </select>
+                            <input type="submit" name="cargar" value="Cargar Datos">
+                            </form>
+
+                            <?php
+                                if (isset($_REQUEST["cargar"])) {
+                                require_once("Contacto.php");
+                                $obj = new contacto();
+                                $resultado = $obj->Consultar_Calificaciones($_REQUEST["idmodificar"]);
+                                while ($registro=$resultado->fetch_assoc()) {
+                            ?>
+
+                            <form action="" method="post">
+                                <div class="parcial">
+                                    <label for="parcial_uno">Calificación Parcial 1:</label>
+                                    <input type="number" name="parcial_uno" value="<?php echo isset($registro["parcial_uno"]) ? $registro["parcial_uno"] : ''; ?>" id="parcial_uno" step="0.1" min="0" max="10" required>
+                                </div>
+                                <div class="parcial">
+                                    <label for="parcial_dos">Calificación Parcial 2:</label>
+                                    <input type="number" name="parcial_dos" value="<?php echo isset($registro["parcial_dos"]) ? $registro["parcial_dos"] : ''; ?>" id="parcial_dos" step="0.1" min="0" max="10" required>
+                                </div>
+                                <div class="parcial">
+                                    <label for="parcial_tres">Calificación Parcial 3:</label>
+                                    <input type="number" name="parcial_tres" value="<?php echo isset($registro["parcial_tres"]) ? $registro["parcial_tres"] : ''; ?>" id="parcial_tres" step="0.1" min="0" max="10" required>
+
+                                </div>
+
+                                <input type="hidden" name="id_calificacion_parcial" value="<?php echo $id_calificacion_parcial; ?>">
+                                <input type="submit" name="Guardar" value="Guardar Calificaciones">
+                            </form>
+                            <?php
+                        }
+                        ?>
+
+                        <?php
+                        }
+                        }
+
+                        if (isset($_REQUEST["Guardar"])) {
+                            $parcial_uno = $_REQUEST['parcial_uno'];
+                            $parcial_dos = $_REQUEST['parcial_dos'];
+                            $parcial_tres = $_REQUEST['parcial_tres'];
+                            $id_calificacion_parcial = $_REQUEST['id_calificacion_parcial'];
+
+                            if ($parcial_uno !== null && $parcial_dos !== null && $parcial_tres !== null && $id_calificacion_parcial !== null) {
+                                require_once("Contacto.php");
+                                $obj = new contacto();
+                                $obj->Modificar_Calificaciones($parcial_uno, $parcial_dos, $parcial_tres, $id_calificacion_parcial);
+                                echo "Calificación Modificada";
+                            } else {
+                                echo "Todos los campos son obligatorios.";
                             }
-                    ?>
+                        }
+                        ?>
                     
                     </section>
 
