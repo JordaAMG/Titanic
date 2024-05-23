@@ -24,7 +24,7 @@ if (isset($_POST["btn_login"])) {
             
             if ($resultado_prof->num_rows > 0) {
                 // Redirigir a la interfaz de profesor
-                header("Location: inicioprofe.php");
+                header("Location: Pagina_Maestro_prototipo1/Profesor_1.php");
                 exit();
             } else {
                 $conexion->sentencia = "SELECT * FROM alumnos WHERE correo = '$correo'";
