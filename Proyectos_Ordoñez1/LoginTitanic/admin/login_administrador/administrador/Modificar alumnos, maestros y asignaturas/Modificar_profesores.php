@@ -1,5 +1,5 @@
 <form action="" method="post">
-    Alumno a modificar:
+    Profesor a modificar:
     <select name="idmodificar">
         <?php
         require_once 'contacto.php';
@@ -8,11 +8,11 @@
         if ($resultado) {
             while ($registro = $resultado->fetch_assoc()) {
                 $selected = (isset($_POST['idmodificar']) && $_POST['idmodificar'] == $registro['matricula_profesor']) ? 'selected' : '';
-                //Esta parte de aqui va a poner en el select la matricula y nombre del alumno para que pueda diferenciar el usuario
+                // Mostrar la matrícula y el nombre completo del profesor en el select
                 echo "<option value='" . $registro["matricula_profesor"] . "' $selected> " . $registro["matricula_profesor"] . " - " . $registro["nombre_completo"] . "</option>";
             }
         } else {
-            echo "No hay registros de alumnos para modificar.";
+            echo "No hay registros de profesores para modificar.";
         }
         ?>
     </select>
@@ -26,31 +26,29 @@ if (isset($_POST["cargar"]) && isset($_POST["idmodificar"])) {
     if ($registro = $resultado->fetch_assoc()) {
         ?>
         <form action="" method="post">
-            <!--Esto de aqui va a imprimir el registro ya guardado del alumno seleccionado al presionar el boton de guardar -->
-            Matricula del Profesor: <input type="text" name="matricula_profesor" value="<?php echo $registro["matricula_profesor"]; ?>" readonly><br>
+            <!-- Campo oculto para matricula_profesor -->
+            <input type="hidden" name="matricula_profesor" value="<?php echo $registro["matricula_profesor"]; ?>">
             Nombre Completo: <input type="text" name="nombre_completo" value="<?php echo $registro["nombre_completo"]; ?>"><br>
             Correo del Profesor: <input type="text" name="correo" value="<?php echo $registro["correo"]; ?>"><br>
             Contraseña: <input type="text" name="contraseña" value="<?php echo $registro["contraseña"]; ?>"><br>
 
+            <!-- Campo oculto para idmodificar -->
             <input type="hidden" name="idmodificar" value="<?php echo $_POST["idmodificar"]; ?>">
             <input type="submit" name="modificar" value="Modificar profesor">
         </form>
         <?php
     } else {
-        echo "No se encontraron datos para el alumno seleccionado.";
+        echo "No se encontraron datos para el profesor seleccionado.";
     }
-} 
+}
 
 if (isset($_POST["modificar"])) {
-    //el if de abajo va a verificar que esten llenos los registros 
+    // Verificar que todos los campos estén llenos
     if (isset($_POST['matricula_profesor'], $_POST['nombre_completo'], $_POST['correo'], $_POST['contraseña'])) {
-       
-    
         $matricula_profesor = $_POST['matricula_profesor'];
         $nombre_completo = $_POST['nombre_completo'];
         $correo = $_POST['correo'];
         $contraseña = $_POST['contraseña'];
-
 
         $obj = new Contacto();
         $obj->modificar_profesor($matricula_profesor, $contraseña, $nombre_completo, $correo);

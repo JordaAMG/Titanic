@@ -20,5 +20,13 @@
          $this->sentencia = "INSERT INTO profesores VALUES ($matricula_profesor, '$contraseña','$nombre_completo', '$correo')";
          $bandera = $this->ejecutar_sentencia();
       }
+
+       //metodo para agregar asignaturas
+       public function agregar_asignatura($id_materia, $nombre,$matricula_profesor){
+         $this->sentencia = "INSERT INTO materias VALUES ($id_materia, '$nombre','$matricula_profesor')";
+         $bandera = $this->ejecutar_sentencia();
+      }
+
+
     }
   ?>

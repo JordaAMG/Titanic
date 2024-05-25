@@ -45,6 +45,14 @@
         }
     }
 
+    // Método para eliminar asignaturas
+    public function eliminar_asignatura($id_materia) {
+
+            // Eliminar el registro de la tabla de materias
+            $this->sentencia = "DELETE FROM materias WHERE id_materia = $id_materia";
+            $this->ejecutar_sentencia();
+    }
+
       //metodo para consultar alumnos
       public function consultar_alumnos(){
          $this->sentencia = "SELECT * FROM alumnos;";
@@ -55,6 +63,13 @@
       //metodo para consultar profesores
       public function consultar_profesores(){
          $this->sentencia = "SELECT * FROM profesores;";
+         $resultado = $this->obtener_sentencia(); 
+         return $resultado;
+      }
+
+      //metodo para consultar profesores
+      public function consultar_asignaturas(){
+         $this->sentencia = "SELECT * FROM materias;";
          $resultado = $this->obtener_sentencia(); 
          return $resultado;
       }

@@ -3,28 +3,28 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eliminar Alumno</title>
+    <title>Eliminar Asignatura</title>
 </head>
 <body>
     <fieldset>
-        <legend>Eliminar Alumno</legend>
+        <legend>Eliminar Asignatura</legend>
         <form action="" method="post">
-            Alumno a eliminar:
+            Asignatura a eliminar:
 
             <select name="ideliminar">
                 <?php
                 require_once 'contacto.php';
                 $obj = new Contacto();
                 if (isset($_POST['eliminar']) && isset($_POST['ideliminar'])) {
-                    $obj->eliminar_alumno($_POST['ideliminar']);
+                    $obj->eliminar_asignatura($_POST['ideliminar']);
                 }
 
                 // Obtener los datos de los alumnos
-                $resultado = $obj->consultar_alumnos();
+                $resultado = $obj->consultar_asignaturas();
                 
                 while ($registro = $resultado->fetch_assoc()) {
-                     //Esto de aqui va a cargar la matricula del alumno y el nombre para que el uadministrador seleccione cual quiere Eliminar
-                    echo "<option value='" . $registro["matricula_alumno"] . "'> " . $registro["matricula_alumno"] . " - " . $registro["nombre_completo"] . "</option>";
+                     //Esto de aqui va a cargar el id de la materia y el nombre para que el uadministrador seleccione cual quiere Eliminar
+                    echo "<option value='" . $registro["id_materia"] . "'> " . $registro["id_materia"] . " - " . $registro["nombre"] . "</option>";
                 }
                 ?>
             </select>
@@ -34,9 +34,10 @@
         <?php
         if (isset($_POST['eliminar'])) {
             
-            echo "Alumno eliminado";
+            echo "<br>Asignatura eliminada";
         }
         ?>
+        
     </fieldset>
 </body>
 </html>

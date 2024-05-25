@@ -23,6 +23,16 @@
         return $this->obtener_sentencia();
     }
 
+    //metodo para obtener los registros de las materias
+     public function consultar_asignaturas($id_materia = null) {
+        if ($id_materia !== null) {
+            $this->sentencia = "SELECT * FROM materias WHERE id_materia = '$id_materia'";
+        } else {
+            $this->sentencia = "SELECT * FROM materias";
+        }
+        return $this->obtener_sentencia();
+    }
+
       //metodo para modificar el registro del alumno
       public function modificar_alumno($matricula_alumno, $contraseña, $nombre_completo, $correo) {
     $this->sentencia = "UPDATE alumnos SET contraseña = '$contraseña', nombre_completo = '$nombre_completo', correo = '$correo' WHERE matricula_alumno = $matricula_alumno";
@@ -34,6 +44,25 @@
      public function modificar_profesor($matricula_profesor, $contraseña, $nombre_completo, $correo) {
     $this->sentencia = "UPDATE profesores SET contraseña = '$contraseña', nombre_completo = '$nombre_completo', correo = '$correo' WHERE matricula_profesor = '$matricula_profesor'";
     $this->ejecutar_sentencia();
+}
+
+
+    // metodo para verificar profesor
+    public function verificar_profesor($matricula_profesor) {
+    $this->sentencia = "SELECT * FROM profesores WHERE matricula_profesor = '$matricula_profesor'";
+    $resultado = $this->obtener_sentencia();
+    return $resultado->num_rows > 0;
+} 
+
+    //metodo para modificar el registro de la asignatura
+    public function modificar_asignatura($id_materia, $nombre, $matricula_profesor) {
+    if ($this->verificar_profesor($matricula_profesor)) {
+        $this->sentencia = "UPDATE materias SET nombre = '$nombre', matricula_profesor = '$matricula_profesor' WHERE id_materia = '$id_materia'";
+        $this->ejecutar_sentencia();
+        return true;
+    } else {
+        return false;
+    }
 }
 
 public function modificar_login($correo, $contraseña) {
