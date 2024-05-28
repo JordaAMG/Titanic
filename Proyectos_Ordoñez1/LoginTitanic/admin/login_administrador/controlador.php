@@ -26,19 +26,19 @@ if (isset($_POST["matricular_alumno"])) {
 //MAESTROS
 
 if (isset($_POST["agregar_profesor"])) {
-    // Redirigir a agregar alumno
+    // Redirigir a agregar profesor
             header("Location: administrador/Agregar alumnos, maestros y asignaturas/Agregar_profesor.php");
             exit();
 }
 
 if (isset($_POST["eliminar_profesor"])) {
-    // Redirigir a agregar alumno
+    // Redirigir a eliminar profesor
             header("Location: administrador/Eliminar alumnos, maestros y asignaturas/Eliminar_profesor.php");
             exit();
 }
 
 if (isset($_POST["modificar_profesor"])) {
-    // Redirigir a agregar alumno
+    // Redirigir a modificar profesor
             header("Location: administrador/Modificar alumnos, maestros y asignaturas/Modificar_profesores.php");
             exit();
 }
@@ -46,19 +46,19 @@ if (isset($_POST["modificar_profesor"])) {
 //ASIGNATURAS
 
 if (isset($_POST["agregar_asignatura"])) {
-    // Redirigir a agregar alumno
+    // Redirigir a agregar asignatura
             header("Location: administrador/Agregar alumnos, maestros y asignaturas/Agregar_asignatura.php");
             exit();
 }
 
 if (isset($_POST["eliminar_asignatura"])) {
-    // Redirigir a agregar alumno
+    // Redirigir a eliminar asignatura
             header("Location: administrador/Eliminar alumnos, maestros y asignaturas/Eliminar_asignatura.php");
             exit();
 }
 
 if (isset($_POST["modificar_asignatura"])) {
-    // Redirigir a agregar alumno
+    // Redirigir a moficicar asignatura
             header("Location: administrador/Modificar alumnos, maestros y asignaturas/Modificar_asignaturas.php");
             exit();
 }

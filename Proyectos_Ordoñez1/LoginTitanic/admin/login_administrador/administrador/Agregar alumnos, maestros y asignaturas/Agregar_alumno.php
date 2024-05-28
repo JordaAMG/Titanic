@@ -4,19 +4,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Agregar Alumno</title>
+    <link rel="stylesheet" type="text/css" href="css/Agregar_alumno.css">
 </head>
 <body>
-    <fieldset>
-    <legend>Agregar Alumno</legend>
+    <a href="../../../login_administrador/interfaz_administrador.php" class="button">Volver</a>
+    <div class="container">
+        <h1>Agregar Alumno</h1>
+        <form action="" method="post">
+             <!--esto del label es solo para agregar un comentario al usuario de lo que esta pidiendo-->
+            <label for="matricula_alumno">Ingrese la matricula del alumno:</label>
+            <input type="number" id="matricula_alumno" name="matricula_alumno" min="1" required><br>
+            <label for="nombre_completo">Ingrese el nombre completo del alumno:</label>
+            <input type="text" id="nombre_completo" name="nombre_completo" required><br>
+            <label for="correo">Ingrese el correo del alumno:</label>
+            <input type="email" id="correo" name="correo" required><br>
+            <label for="contraseña">Ingrese la contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña" required><br>
 
-    <form action="" method="post">
-        Ingrese la matricula del alumno: <input type="number" name="matricula_alumno" min="1" required><br>
-        Ingrese el nombre completo del alumno: <input type="text" name="nombre_completo" required><br>
-        Ingrese el correo del alumno: <input type="text" name="correo" required><br>
-        Ingrese la contraseña: <input type="text" name="contraseña" required><br>
-
-        <input type="submit" name="agregar_alumno" value="Agregar Alumno">
-    </form>
+            <input type="submit" name="agregar_alumno" value="Agregar Alumno">
+        </form>
+    </div>
 
 <?php
 if (isset($_REQUEST['agregar_alumno'])) { 
@@ -24,7 +31,6 @@ if (isset($_REQUEST['agregar_alumno'])) {
     $contraseña = $_REQUEST['contraseña'];
     $nombre_completo = $_REQUEST['nombre_completo'];
     $correo = $_REQUEST['correo'];
-  
 
     require_once 'contacto.php';
 
@@ -39,6 +45,5 @@ if (isset($_REQUEST['agregar_alumno'])) {
     echo "Alumno agregado";
 }
 ?>
-    </fieldset>
 </body>
 </html>
