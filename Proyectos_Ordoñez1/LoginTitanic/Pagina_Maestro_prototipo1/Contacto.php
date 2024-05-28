@@ -28,16 +28,16 @@
          FROM calificaciones
          INNER JOIN alumnos
          ON calificaciones.matricula_alumno = alumnos.matricula_alumno
-         WHERE alumnos.matricula_alumno = $matricula_alumno;";
+         WHERE alumnos.matricula_alumno = $matricula_alumno";
          $resultado = $this->obtener_sentencia(); 
          return $resultado;
       }
 
-      public function Modificar_Calificaciones($parcial_uno, $parcial_dos, $parcial_tres, $id_calificacion_parcial){
+      public function Modificar_Calificaciones($parcial_uno, $parcial_dos, $parcial_tres, $id_calificacion_parcial, $matricula_alumno, $Materia_Elegida){
          $this->sentencia = "UPDATE calificaciones SET parcial_uno='$parcial_uno', parcial_dos='$parcial_dos', parcial_tres='$parcial_tres'
-         Where id_calificacion_parcial= '$id_calificacion_parcial' ";
-         $bandera = $this->ejecutar_sentencia();
-         return $bandera;
+         Where id_calificacion_parcial= '$id_calificacion_parcial' 
+         AND matricula_alumno = $matricula_alumno
+         AND id_materia = $Materia_Elegida";
       }
 
       public function consultar(){

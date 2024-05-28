@@ -12,25 +12,15 @@
 	</div>
 	<div id="caja2">
     <?php
- require_once("Contacto.php");
-      $obj= new Contacto();
-      $resultado= $obj->istarcalificaciones_padrealumno();
-      
-echo "<table>";
-echo "<tr>
-<th>Materia</th>
-<th>Parcial 1</th>
-<th>Parcial 2</th>
-<th>Parcial 3</th>
-</tr>";
+ 		require_once("Contacto.php");
+      	$obj= new Contacto();
+      	$Matricula_Alumno = 1;
 
-while($registro = $resultado->fetch_assoc()) {
-    echo "<tr>";
-    echo "<td>".$registro["nombre"]."</td>";
-    echo "<td>".$registro["parcial_uno"]."</td>";
-    echo "<td>".$registro["parcial_dos"]."</td>";
-    echo "<td>".$registro["parcial_tres"]."</td>";
-    echo "</tr>";
+        $resultado = $obj->Consultar_Calificaciones($Matricula_Alumno);
+        while ($registro = $resultado->fetch_assoc()) {
+            echo "<option value='".$registro['id_calificacion_parcial']."'>".$registro["parcial_uno"].".".$registro["parcial_dos"].".".$registro["parcial_tres"]."</option>";
+        }
+
     ?>
          
 	</div>

@@ -12,13 +12,14 @@
 	</div>
 	<div id="caja2">
     <?php
- require_once("Contacto.php");
-      $obj= new Contacto();
-      $resultado= $obj->consultar_nombre_usuariopadrealumno();
-      echo "<table >";
+ 			require_once("Contacto.php");
+      $obj = new Contacto();
+      $Matricula_Alumno = 1;
+      $resultado= $obj->Listar_Alumnos($Matricula_Alumno);
+      echo "<table>";
       echo "<tr>";
-      echo "<th> "Nombre Completo de sus Compañeros de clase" </th>";
-      echo "<th></th>";
+      echo "<th>nombre_completo</th>";
+      echo "</tr>";
       while($registro=$resultado->fetch_assoc()){
       	echo "<tr>";
       	echo "<td>".$registro["nombre_completo"]."</td>";
