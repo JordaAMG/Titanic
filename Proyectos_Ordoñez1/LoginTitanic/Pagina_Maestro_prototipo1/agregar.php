@@ -61,6 +61,7 @@
                 $calificacion_parcial_2 = $_POST["calificacion_parcial_2"];
                 $calificacion_parcial_3 = $_POST["calificacion_parcial_3"];
 
+                include ("Conexion.php");
                 $conexion = new Conexion();
 
                 // Verificar existencia de calificaciones

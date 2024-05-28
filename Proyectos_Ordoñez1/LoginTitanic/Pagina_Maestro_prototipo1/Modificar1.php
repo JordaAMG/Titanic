@@ -100,6 +100,72 @@
                         if (isset($_REQUEST["matricula_alumno"])) {
                             $matricula_alumno = $_REQUEST["matricula_alumno"];
                             ?>
+
+                            <legend>Modificación Calificaciones</legend>
+        <form action="" method="post">
+            <!-- Select de las calificaciones -->
+            <label>Calificaciones a modificar:</label>
+            <select name="peliculas" id="peliculas">
+                <?php
+                require_once("Contacto.php"); // Incluye el archivo Contacto.php que contiene la definición de la clase Contacto
+                $obj = new contacto(); // Crea una nueva instancia de la clase Contacto
+                
+                $informacion = $gestion->consultar();
+
+                while ($pelicula = $informacion->fetch_assoc()) {
+                    echo "<option value='" . $pelicula['id_pelicula'] . "'>" . $pelicula['titulo'] . "</option>";
+                }
+                ?>
+            </select>
+
+            <input type="submit" name="cargar" value="Cargar datos"><br><br>
+
+            <?php 
+            if(isset($_REQUEST['cargar'])){
+                $id_pelicula = $_REQUEST['peliculas'];
+                $resultado = $gestion->cargar($id_pelicula);
+                while ($registro = $resultado->fetch_assoc()) {
+            ?>
+            <form name="Datos" method="post" action=""> 
+                Titulo: <input type="text" name="titulo" value="<?php echo $registro['titulo']; ?>">
+                Actores: <input type="text" name="actores" value="<?php echo $registro['actores']; ?>"><br><br>
+
+                Director: <input type="text" name="director" value="<?php echo $registro['director']; ?>">
+                Guión: <input type="text" name="guion" value="<?php echo $registro['guion']; ?>"><br><br>
+
+                Producción: <input type="text" name="produccion" value="<?php echo $registro['produccion']; ?>">
+                Año: <input type="text" name="anio" value="<?php echo $registro['anio']; ?>"><br><br>
+
+                Nacionalidad: <input type="text" name="nacionalidad" value="<?php echo $registro['nacionalidad']; ?>">
+                Duración: <input type="text" name="duracion" value="<?php echo $registro['duracion']; ?>" ><br><br>
+
+                Género: <select name="generos">
+                    <option value="Ninguno">Ninguno</option>
+                    <option value="Comedia">Comedia</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Accion">Acción</option>
+                    <option value="Terror">Terror</option>
+                    <option value="suspenso">Suspenso</option>
+                    <option value="otras">Otras</option>
+                </select> <br> <br>
+
+                Restricciones de edad: <br>
+                <input type="radio" name="opcion" value="Tpublico">Todo los públicos 
+                <input type="radio" name="opcion" value="Mayores7">Mayores de 7 años 
+                <input type="radio" name="opcion" value="Mayores18">Mayores de 18 años <br><br>
+
+                Sinópsis: <br>
+                <textarea name="sinopsis" cols="40" rows="10"><?php echo $registro['sinopsis']; ?></textarea> <br><br>
+
+                <input type="submit" name="Guardar" value="Guardar cambios">
+                <br><br>
+            <?php 
+                }
+            }
+            ?>
+            </form>
+        </form>
+
                             <form action="" method="post" >
                             <select name="idmodificar" id="idmodificar">
 
