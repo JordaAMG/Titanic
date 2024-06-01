@@ -11,12 +11,14 @@
     <div class="container">
         <h1>Agregar Asignatura</h1>
         <form action="" method="post">
-            <!--esto del label es solo para agregar un comentario al usuario de lo que esta pidiendo-->
-            <label for="id_materia">Ingrese id de la asignatura:</label>
+            
+            Ingrese id de la asignatura:
             <input type="number" id="id_materia" name="id_materia" min="1" required><br>
-            <label for="nombre">Ingrese el nombre de la asignatura:</label>
+
+            Ingrese el nombre de la asignatura:
             <input type="text" id="nombre" name="nombre" required><br>
-            <label for="matricula_profesor">Ingrese la matrícula del profesor que da la asignatura:</label>
+
+            Ingrese la matrícula del profesor que da la asignatura:
             <input type="text" id="matricula_profesor" name="matricula_profesor" required><br>
 
             <input type="submit" name="agregar_asignatura" value="Agregar Asignatura">

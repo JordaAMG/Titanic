@@ -27,6 +27,21 @@
          $bandera = $this->ejecutar_sentencia();
       }
 
+      //metodo para consultar los grupos
+     public function consultar_grupos($id_grupo = null) {
+        if ($id_grupo !== null) {
+            $this->sentencia = "SELECT * FROM grupos WHERE id_grupo = '$id_grupo'";
+        } else {
+            $this->sentencia = "SELECT * FROM grupos";
+        }
+        return $this->obtener_sentencia();
+    }
+
+     // Método para actualizar el grupo del alumno
+    public function actualizar_grupo_alumno($matricula_alumno, $id_grupo) {
+        $this->sentencia = "UPDATE grupos SET matricula_alumno = $matricula_alumno WHERE id_grupo = $id_grupo";
+        $bandera = $this->ejecutar_sentencia();
+    }
 
     }
   ?>

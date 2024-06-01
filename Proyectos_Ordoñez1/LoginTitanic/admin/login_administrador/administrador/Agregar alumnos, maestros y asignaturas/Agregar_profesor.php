@@ -11,14 +11,17 @@
     <div class="container">
         <h1>Agregar Profesor</h1>
         <form action="" method="post">
-             <!--esto del label es solo para agregar un comentario al usuario de lo que esta pidiendo-->
-            <label for="matricula_profesor">Ingrese la matricula del profesor:</label>
+           
+            Ingrese la matricula del profesor:
             <input type="number" id="matricula_profesor" name="matricula_profesor" min="1" required><br>
-            <label for="nombre_completo">Ingrese el nombre completo del profesor:</label>
+
+            Ingrese el nombre completo del profesor:
             <input type="text" id="nombre_completo" name="nombre_completo" required><br>
-            <label for="correo">Ingrese el correo del profesor:</label>
+
+           Ingrese el correo del profesor:
             <input type="email" id="correo" name="correo" required><br>
-            <label for="contraseña">Ingrese la contraseña:</label>
+
+            Ingrese la contraseña:
             <input type="password" id="contraseña" name="contraseña" required><br>
 
             <input type="submit" name="agregar_profesor" value="Agregar Profesor">

@@ -13,11 +13,13 @@ CREATE TABLE alumnos(
     contraseña VARCHAR (30),
     nombre_completo VARCHAR (100),
     correo VARCHAR (50),
-    FOREIGN KEY (correo) REFERENCES login(correo)
+    id_grupo INT,
+    FOREIGN KEY (correo) REFERENCES login(correo),
+    FOREIGN KEY (id_grupo) REFERENCES grupos(id_grupo)
 );
 
 CREATE TABLE profesores(
-    matricula_profesor INT (8) PRIMARY KEY,
+    matricula_profesor INT PRIMARY KEY,
     contraseña VARCHAR (30),
     nombre_completo VARCHAR (100),
     correo VARCHAR (50),
@@ -25,7 +27,7 @@ CREATE TABLE profesores(
 );
 
 CREATE TABLE administradores(
-    matricula_admin INT (8) PRIMARY KEY,
+    matricula_admin INT PRIMARY KEY,
     contraseña VARCHAR (30),
     nombre_completo VARCHAR (100),
     correo VARCHAR (50),
@@ -36,20 +38,22 @@ CREATE TABLE materias(
     id_materia INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR (50),
     matricula_profesor INT,
-    FOREIGN KEY (matricula_profesor) REFERENCES profesores(matricula_profesor),
-    matricula_alumno INT,
-    FOREIGN KEY (matricula_alumno) REFERENCES alumnos(matricula_alumno)
+    FOREIGN KEY (matricula_profesor) REFERENCES profesores(matricula_profesor)
 );
 
 CREATE TABLE grupos (
     id_grupo INT AUTO_INCREMENT PRIMARY KEY,
     nombre_grupo VARCHAR(50),
     id_materia INT,
-    matricula_alumno INT,
+    FOREIGN KEY (id_materia) REFERENCES materias(id_materia)
+);
+
+CREATE TABLE profesores_grupos (
     matricula_profesor INT,
-    FOREIGN KEY (id_materia) REFERENCES materias(id_materia),
-    FOREIGN KEY (matricula_alumno) REFERENCES alumnos(matricula_alumno),
-    FOREIGN KEY (matricula_profesor) REFERENCES profesores(matricula_profesor)
+    id_grupo INT,
+    PRIMARY KEY (matricula_profesor, id_grupo),
+    FOREIGN KEY (matricula_profesor) REFERENCES profesores(matricula_profesor),
+    FOREIGN KEY (id_grupo) REFERENCES grupos(id_grupo)
 );
 
 CREATE TABLE semestre(
@@ -69,7 +73,6 @@ CREATE TABLE calificaciones(
     FOREIGN KEY (matricula_alumno) REFERENCES alumnos(matricula_alumno),
     FOREIGN KEY (id_materia) REFERENCES materias(id_materia)
 );
-
 
 CREATE TABLE horarios(
     id_horario INT AUTO_INCREMENT PRIMARY KEY,
@@ -110,13 +113,12 @@ INSERT INTO login (correo, contraseña) VALUES
 INSERT INTO administradores (matricula_admin, contraseña, nombre_completo, correo) VALUES 
 (1, 'hundido', 'Titanic', 'titanic@gmail.com');
 
-
-INSERT INTO alumnos (matricula_alumno, contraseña, nombre_completo, correo) VALUES 
-(1, 'pass123', 'Alumno Uno', 'alumno1@example.com'),
-(2, 'pass123', 'Alumno Dos', 'alumno2@example.com'),
-(3, 'pass123', 'Alumno Tres', 'alumno3@example.com'),
-(4, 'pass123', 'Alumno Cuatro', 'alumno4@example.com'),
-(5, 'pass123', 'Alumno Cinco', 'alumno5@example.com');
+INSERT INTO alumnos (matricula_alumno, contraseña, nombre_completo, correo, id_grupo) VALUES 
+(1, 'pass123', 'Alumno Uno', 'alumno1@example.com', 1),
+(2, 'pass123', 'Alumno Dos', 'alumno2@example.com', 2),
+(3, 'pass123', 'Alumno Tres', 'alumno3@example.com', 3),
+(4, 'pass123', 'Alumno Cuatro', 'alumno4@example.com', 4),
+(5, 'pass123', 'Alumno Cinco', 'alumno5@example.com', 5);
 
 INSERT INTO profesores (matricula_profesor, contraseña, nombre_completo, correo) VALUES 
 (1, 'pass123', 'Profesor Uno', 'profesor1@example.com'),
@@ -132,12 +134,19 @@ INSERT INTO materias (nombre, matricula_profesor) VALUES
 ('Geografía', 4),
 ('Lengua', 5);
 
-INSERT INTO grupos (nombre_grupo, id_materia, matricula_alumno, matricula_profesor) VALUES 
-('Grupo A', 1, 1, 1),
-('Grupo B', 2, 2, 2),
-('Grupo C', 3, 3, 3),
-('Grupo D', 4, 4, 4),
-('Grupo E', 5, 5, 5);
+INSERT INTO grupos (nombre_grupo, id_materia) VALUES 
+('Grupo A', 1),
+('Grupo B', 2),
+('Grupo C', 3),
+('Grupo D', 4),
+('Grupo E', 5);
+
+INSERT INTO profesores_grupos (matricula_profesor, id_grupo) VALUES 
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
 
 INSERT INTO semestre (semestre, matricula_alumno) VALUES 
 ('Semestre 1', 1),
@@ -166,7 +175,4 @@ INSERT INTO asistencias (fecha, asistencia, falta, justificante, matricula_alumn
 ('2023-01-03', TRUE, FALSE, FALSE, 3, 3),
 ('2023-01-04', TRUE, FALSE, FALSE, 4, 4),
 ('2023-01-05', TRUE, FALSE, FALSE, 5, 5);
-
-
-
 

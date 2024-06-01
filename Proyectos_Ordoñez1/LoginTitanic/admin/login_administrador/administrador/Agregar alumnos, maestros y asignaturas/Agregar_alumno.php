@@ -11,39 +11,31 @@
     <div class="container">
         <h1>Agregar Alumno</h1>
         <form action="" method="post">
-             <!--esto del label es solo para agregar un comentario al usuario de lo que esta pidiendo-->
-            <label for="matricula_alumno">Ingrese la matricula del alumno:</label>
+            Ingrese la matricula del alumno:
             <input type="number" id="matricula_alumno" name="matricula_alumno" min="1" required><br>
-            <label for="nombre_completo">Ingrese el nombre completo del alumno:</label>
+            Ingrese el nombre completo del alumno:
             <input type="text" id="nombre_completo" name="nombre_completo" required><br>
-            <label for="correo">Ingrese el correo del alumno:</label>
+            Ingrese el correo del alumno:
             <input type="email" id="correo" name="correo" required><br>
-            <label for="contraseña">Ingrese la contraseña:</label>
+            Ingrese la contraseña:
             <input type="password" id="contraseña" name="contraseña" required><br>
+
+            Seleccione el grupo:
+            <select id="id_grupo" name="id_grupo" required>
+                <option value="">Seleccione un grupo</option>
+                <?php
+                require_once 'contacto.php';
+                $obj = new Contacto();
+                $result = $obj->consultar_grupos();
+                while ($row = $result->fetch_assoc()) {
+                    echo "<option value='".$row['id_grupo']."'>".$row['nombre_grupo']."</option>";
+                }
+                ?>
+                
+            </select><br>
 
             <input type="submit" name="agregar_alumno" value="Agregar Alumno">
         </form>
     </div>
-
-<?php
-if (isset($_REQUEST['agregar_alumno'])) { 
-    $matricula_alumno = $_REQUEST['matricula_alumno'];
-    $contraseña = $_REQUEST['contraseña'];
-    $nombre_completo = $_REQUEST['nombre_completo'];
-    $correo = $_REQUEST['correo'];
-
-    require_once 'contacto.php';
-
-    $obj = new Contacto();
-    
-    // Primero agregar el correo a la tabla login
-    $obj->agregar_correo_a_login($correo, $contraseña);
-
-    // Luego agregar el alumno a la tabla alumnos
-    $obj->agregar_alumno($matricula_alumno, $contraseña, $nombre_completo, $correo);
-    
-    echo "Alumno agregado";
-}
-?>
 </body>
 </html>
