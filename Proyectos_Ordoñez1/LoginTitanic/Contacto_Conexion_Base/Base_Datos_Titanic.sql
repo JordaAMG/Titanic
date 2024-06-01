@@ -45,6 +45,7 @@ CREATE TABLE grupos (
     id_grupo INT AUTO_INCREMENT PRIMARY KEY,
     nombre_grupo VARCHAR(50),
     id_materia INT,
+    semestre INT,
     FOREIGN KEY (id_materia) REFERENCES materias(id_materia)
 );
 
@@ -54,13 +55,6 @@ CREATE TABLE profesores_grupos (
     PRIMARY KEY (matricula_profesor, id_grupo),
     FOREIGN KEY (matricula_profesor) REFERENCES profesores(matricula_profesor),
     FOREIGN KEY (id_grupo) REFERENCES grupos(id_grupo)
-);
-
-CREATE TABLE semestre(
-    id_semestre INT AUTO_INCREMENT PRIMARY KEY,
-    semestre VARCHAR(30),
-    matricula_alumno INT,
-    FOREIGN KEY (matricula_alumno) REFERENCES alumnos(matricula_alumno)
 );
 
 CREATE TABLE calificaciones(
