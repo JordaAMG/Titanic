@@ -56,7 +56,7 @@
             $alumno_agregado = $obj->agregar_alumno($matricula_alumno, $contraseña, $nombre_completo, $correo, $id_grupo);
 
             //esto es para verificar que si este usando los metodos correctamente
-            if (isset(REQUEST['agregar_alumno'])) {
+            if (isset($_REQUEST['agregar_alumno'])) {
                 echo "<p>Alumno agregado exitosamente al grupo.</p>";
             }
         }
