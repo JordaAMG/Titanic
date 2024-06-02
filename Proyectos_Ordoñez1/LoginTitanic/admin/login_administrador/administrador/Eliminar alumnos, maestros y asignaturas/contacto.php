@@ -36,6 +36,10 @@
         if ($registro = $resultado->fetch_assoc()) {
             $correo = $registro['correo'];
 
+             // Eliminar las relaciones en la tabla profesores_grupos
+            $this->sentencia = "DELETE FROM profesores_grupos WHERE matricula_profesor = $matricula_profesor";
+            $this->ejecutar_sentencia();
+
             // Eliminar el registro de la tabla de profesores
             $this->sentencia = "DELETE FROM profesores WHERE matricula_profesor = $matricula_profesor";
             $this->ejecutar_sentencia();

@@ -59,6 +59,6 @@
         </div>
     </div>
 
-    <button class="logout-button">Cerrar sesión</button>
+    <a class="logout-button" href="../../login.php">Cerrar Sesión</a>
 </body>
 </html>

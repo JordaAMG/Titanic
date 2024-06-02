@@ -4,40 +4,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Eliminar Asignatura</title>
+    <link rel="stylesheet" type="text/css" href="css/Eliminar_asignatura.css">
 </head>
 <body>
-    <fieldset>
-        <legend>Eliminar Asignatura</legend>
-        <form action="" method="post">
-            Asignatura a eliminar:
+    <a href="../../../login_administrador/interfaz_administrador.php" class="button">Volver</a>
+    <div class="container">
+        <fieldset>
+            <legend>Eliminar Asignatura</legend>
+            <form action="" method="post">
+                Asignatura a eliminar:
+                <select name="ideliminar" required>
+                    <option value="">Seleccione una asignatura</option>
+                    <?php
+                    require_once 'contacto.php';
+                    $obj = new Contacto();
+                    if (isset($_POST['eliminar']) && isset($_POST['ideliminar'])) {
+                        $obj->eliminar_asignatura($_POST['ideliminar']);
+                    }
 
-            <select name="ideliminar">
-                <?php
-                require_once 'contacto.php';
-                $obj = new Contacto();
-                if (isset($_POST['eliminar']) && isset($_POST['ideliminar'])) {
-                    $obj->eliminar_asignatura($_POST['ideliminar']);
-                }
+                    // Obtener los datos de las asignaturas
+                    $resultado = $obj->consultar_asignaturas();
+                    
+                    while ($registro = $resultado->fetch_assoc()) {
+                         // Esto de aquí va a cargar el id de la materia y el nombre para que el administrador seleccione cuál quiere eliminar
+                        echo "<option value='" . $registro["id_materia"] . "'> " . $registro["id_materia"] . " - " . $registro["nombre"] . "</option>";
+                    }
+                    ?>
+                </select>
+                <input type="submit" name="eliminar" value="Eliminar">
+            </form>
 
-                // Obtener los datos de los alumnos
-                $resultado = $obj->consultar_asignaturas();
-                
-                while ($registro = $resultado->fetch_assoc()) {
-                     //Esto de aqui va a cargar el id de la materia y el nombre para que el uadministrador seleccione cual quiere Eliminar
-                    echo "<option value='" . $registro["id_materia"] . "'> " . $registro["id_materia"] . " - " . $registro["nombre"] . "</option>";
-                }
-                ?>
-            </select>
-            <input type="submit" name="eliminar" value="Eliminar">
-        </form>
-
-        <?php
-        if (isset($_POST['eliminar'])) {
-            
-            echo "<br>Asignatura eliminada";
-        }
-        ?>
-        
-    </fieldset>
+            <?php
+            if (isset($_POST['eliminar'])) {
+                echo "<p>Asignatura eliminada</p>";
+            }
+            ?>
+        </fieldset>
+    </div>
 </body>
 </html>
