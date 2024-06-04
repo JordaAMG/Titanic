@@ -18,6 +18,27 @@
                 <a href=""></a>
                 <div id="Info_usuario1">
             	    <p>Nombre del Profesor:</p>
+                    <?php 
+                    require_once("../controlador.php"); 
+                    $obj = new Controlador();
+                    $resultado = $obj->Obtener_DatosUsuario();
+                    if ($resultado->num_rows > 0) {
+                            // Mostrar las materias
+                        echo "<table>";
+                        echo "<tr>";
+                        echo "<th>Nombre Completo</th>";
+                        echo "<th>Matricula</th>";
+                        echo "</tr>";
+                        while ($fila = $resultado->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . $fila["nombre_completo"] . "</td>";
+                            echo "<td>" . $fila["matricula_profesor"] . "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "Se ocaciono un error";
+                    }
+                    ?>
                     <p>Numero de cuenta:</p>
                </div>
             </article>
