@@ -22,8 +22,8 @@
             </div>
         </article>
 
-        <article id="cerrar_secion0">
-            <a id="Info_Cerrar_secion" href="?opc=Cerrar_sesión1">Cerrar Sesion</a>
+        <article id="cerrar_sesion0">
+            <a id="Info_Cerrar_sesion" href="../login.php">Cerrar Sesion</a>
             <input id="Imagen0" type="image" src="Icon_salir.PNG" alt="Enviar" width="30px" height="30px">
         </article>
     </Header>
@@ -51,7 +51,7 @@
                 </header>
                 <section id="Contenedor_Botones">
                     <br>
-                    <a id="Botones" href="mostrarhorario.php">Consultar horario:</a><br><br><br>
+                    <a id="Botones" href="Consultar_horario/consultar_horario.php">Consultar horario:</a><br><br><br>
                 </section>
             </div>
 
