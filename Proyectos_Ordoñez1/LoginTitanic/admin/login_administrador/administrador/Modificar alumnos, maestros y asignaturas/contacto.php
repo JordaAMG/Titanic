@@ -33,10 +33,10 @@
         return $this->obtener_sentencia();
     }
 
-      //metodo para modificar el registro del alumno
-      public function modificar_alumno($matricula_alumno, $contraseña, $nombre_completo, $correo) {
-    $this->sentencia = "UPDATE alumnos SET contraseña = '$contraseña', nombre_completo = '$nombre_completo', correo = '$correo' WHERE matricula_alumno = $matricula_alumno";
-    $this->ejecutar_sentencia();
+       // Método para modificar el registro del alumno
+    public function modificar_alumno($matricula_alumno, $contraseña, $nombre_completo, $correo) {
+        $this->sentencia = "UPDATE alumnos SET contraseña = '$contraseña', nombre_completo = '$nombre_completo', correo = '$correo' WHERE matricula_alumno = $matricula_alumno";
+        return $this->ejecutar_sentencia();
     }
       
 
