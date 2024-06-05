@@ -19,6 +19,7 @@ body {
 
 fieldset {
     border: none;
+    padding: 0;
 }
 
 legend {
@@ -34,13 +35,21 @@ form {
     align-items: center;
 }
 
-select, input[type="text"], input[type="submit"] {
+label, input, select {
     margin-bottom: 10px;
+    width: 100%;  
+}
+
+input[type="number"],
+input[type="text"],
+input[type="time"],
+input[type="submit"],
+select {
     padding: 10px;
     font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 100%;
+    width: 100%;  
     box-sizing: border-box;
     text-align: center;
 }
@@ -73,8 +82,9 @@ input[type="submit"]:hover {
     background-color: #e53935;
 }
 
-p {
-    margin-top: 20px;
-    font-size: 1.2em;
+.modificada {
     color: white;
+    margin-top: 20px;
+    font-size: 1em;
+    font-weight: bold;
 }

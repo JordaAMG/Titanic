@@ -1,9 +1,11 @@
 <?php
-   include ("conexion.php");
-   Class Contacto extends Conexion{
+include("conexion.php");
 
-  //metodo para obtener los registros de los alumnos
-       public function consultar_alumnos($matricula_alumno = null) {
+Class Contacto extends Conexion {
+
+
+    // Método para consultar alumnos
+    public function consultar_alumnos($matricula_alumno = null) {
         if ($matricula_alumno !== null) {
             $this->sentencia = "SELECT * FROM alumnos WHERE matricula_alumno = '$matricula_alumno'";
         } else {
@@ -12,9 +14,9 @@
         $resultado = $this->obtener_sentencia(); 
         return $resultado;
     }
-      
-      //metodo para obtener los registros de los profesores
-     public function consultar_profesores($matricula_profesor = null) {
+
+    // Método para consultar profesores
+    public function consultar_profesores($matricula_profesor = null) {
         if ($matricula_profesor !== null) {
             $this->sentencia = "SELECT * FROM profesores WHERE matricula_profesor = '$matricula_profesor'";
         } else {
@@ -23,8 +25,8 @@
         return $this->obtener_sentencia();
     }
 
-    //metodo para obtener los registros de las materias
-     public function consultar_asignaturas($id_materia = null) {
+    // Método para consultar asignaturas
+    public function consultar_asignaturas($id_materia = null) {
         if ($id_materia !== null) {
             $this->sentencia = "SELECT * FROM materias WHERE id_materia = '$id_materia'";
         } else {
@@ -33,42 +35,32 @@
         return $this->obtener_sentencia();
     }
 
-       // Método para modificar el registro del alumno
-    public function modificar_alumno($matricula_alumno, $contraseña, $nombre_completo, $correo) {
-        $this->sentencia = "UPDATE alumnos SET contraseña = '$contraseña', nombre_completo = '$nombre_completo', correo = '$correo' WHERE matricula_alumno = $matricula_alumno";
-        return $this->ejecutar_sentencia();
+    // Método para consultar horario
+    public function consultar_horario($id_materia) {
+        $this->sentencia = "SELECT * FROM horarios WHERE id_materia = '$id_materia'";
+        return $this->obtener_sentencia();
     }
-      
 
-      //metodo para modificar el registro del alumno
-     public function modificar_profesor($matricula_profesor, $contraseña, $nombre_completo, $correo) {
-    $this->sentencia = "UPDATE profesores SET contraseña = '$contraseña', nombre_completo = '$nombre_completo', correo = '$correo' WHERE matricula_profesor = '$matricula_profesor'";
-    $this->ejecutar_sentencia();
-}
+    // Método para modificar asignatura y horario
+    public function modificar_asignatura($id_materia, $nombre, $matricula_profesor, $dia, $inicio, $fin) {
+        if ($this->verificar_profesor($matricula_profesor)) {
+            // Modificar asignatura
+            $this->sentencia = "UPDATE materias SET nombre = '$nombre', matricula_profesor = '$matricula_profesor' WHERE id_materia = '$id_materia'";
+            $this->ejecutar_sentencia();
 
+            // Modificar horario
+            $this->sentencia = "UPDATE horarios SET dia = '$dia', inicio = '$inicio', fin = '$fin' WHERE id_materia = '$id_materia'";
+            $this->ejecutar_sentencia();
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-    // metodo para verificar profesor
     public function verificar_profesor($matricula_profesor) {
-    $this->sentencia = "SELECT * FROM profesores WHERE matricula_profesor = '$matricula_profesor'";
-    $resultado = $this->obtener_sentencia();
-    return $resultado->num_rows > 0;
-} 
-
-    //metodo para modificar el registro de la asignatura
-    public function modificar_asignatura($id_materia, $nombre, $matricula_profesor) {
-    if ($this->verificar_profesor($matricula_profesor)) {
-        $this->sentencia = "UPDATE materias SET nombre = '$nombre', matricula_profesor = '$matricula_profesor' WHERE id_materia = '$id_materia'";
-        $this->ejecutar_sentencia();
-        return true;
-    } else {
-        return false;
+        $this->sentencia = "SELECT * FROM profesores WHERE matricula_profesor = '$matricula_profesor'";
+        $resultado = $this->obtener_sentencia();
+        return $resultado->num_rows > 0;
     }
 }
-
-public function modificar_login($correo, $contraseña) {
-    $this->sentencia = "UPDATE login SET contraseña = '$contraseña' WHERE correo = '$correo'";
-    $this->ejecutar_sentencia();
-}
-  }
-
 ?>

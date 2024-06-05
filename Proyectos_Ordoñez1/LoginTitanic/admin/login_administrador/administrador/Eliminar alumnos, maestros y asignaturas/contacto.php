@@ -59,6 +59,10 @@ Class Contacto extends Conexion {
 
     // Método para eliminar asignaturas
     public function eliminar_asignatura($id_materia) {
+        // Eliminar los registros de horarios asociados a la asignatura
+        $this->sentencia = "DELETE FROM horarios WHERE id_materia = $id_materia";
+        $this->ejecutar_sentencia();
+
         // Eliminar el registro de la tabla de materias
         $this->sentencia = "DELETE FROM materias WHERE id_materia = $id_materia";
         $this->ejecutar_sentencia();

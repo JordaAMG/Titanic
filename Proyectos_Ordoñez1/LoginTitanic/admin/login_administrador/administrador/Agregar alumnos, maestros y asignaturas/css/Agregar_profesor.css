@@ -77,3 +77,10 @@ input[type="submit"]:hover {
 .button:hover {
     background-color: #e53935;
 }
+
+.agregado {
+    color: #28a745;
+    margin-top: 20px;
+    font-size: 1em;
+    font-weight: bold;
+}

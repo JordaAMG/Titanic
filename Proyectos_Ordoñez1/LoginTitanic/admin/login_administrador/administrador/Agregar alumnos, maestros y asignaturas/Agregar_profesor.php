@@ -35,31 +35,31 @@
 
             <input type="submit" name="agregar_profesor" value="Agregar Profesor">
         </form>
+
+        <?php
+        if (isset($_REQUEST['agregar_profesor'])) { 
+            $matricula_profesor = $_REQUEST['matricula_profesor'];
+            $nombre_completo = $_REQUEST['nombre_completo'];
+            $correo = $_REQUEST['correo'];
+            $contraseña = $_REQUEST['contraseña'];
+            $id_grupo = $_REQUEST['id_grupo'];
+
+            require_once 'contacto.php';
+
+            $obj = new Contacto();
+
+            // Primero agregar el correo a la tabla login
+            $obj->agregar_correo_a_login($correo, $contraseña);
+
+            // Luego agregar el profesor a la tabla profesores
+            $obj->agregar_profesor($matricula_profesor, $contraseña, $nombre_completo, $correo);
+
+            // Luego agregar la relación profesor-grupo a la tabla profesores_grupos
+            $obj->agregar_profesor_grupo($matricula_profesor, $id_grupo);
+
+           echo "<p class='agregado'>Profesor agregado</p>"; 
+        }
+        ?>
     </div>
-
-    <?php
-    if (isset($_REQUEST['agregar_profesor'])) { 
-        $matricula_profesor = $_REQUEST['matricula_profesor'];
-        $nombre_completo = $_REQUEST['nombre_completo'];
-        $correo = $_REQUEST['correo'];
-        $contraseña = $_REQUEST['contraseña'];
-        $id_grupo = $_REQUEST['id_grupo'];
-
-        require_once 'contacto.php';
-
-        $obj = new Contacto();
-
-        // Primero agregar el correo a la tabla login
-        $obj->agregar_correo_a_login($correo, $contraseña);
-
-        // Luego agregar el profesor a la tabla profesores
-        $obj->agregar_profesor($matricula_profesor, $contraseña, $nombre_completo, $correo);
-
-        // Luego agregar la relación profesor-grupo a la tabla profesores_grupos
-        $obj->agregar_profesor_grupo($matricula_profesor, $id_grupo);
-
-        echo "Profesor agregado y asignado al grupo";
-    }
-    ?>
 </body>
 </html>

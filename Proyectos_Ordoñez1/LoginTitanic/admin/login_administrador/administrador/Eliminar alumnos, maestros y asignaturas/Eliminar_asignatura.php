@@ -18,9 +18,6 @@
                     <?php
                     require_once 'contacto.php';
                     $obj = new Contacto();
-                    if (isset($_POST['eliminar']) && isset($_POST['ideliminar'])) {
-                        $obj->eliminar_asignatura($_POST['ideliminar']);
-                    }
 
                     // Obtener los datos de las asignaturas
                     $resultado = $obj->consultar_asignaturas();
@@ -35,8 +32,13 @@
             </form>
 
             <?php
-            if (isset($_POST['eliminar'])) {
-                echo "<p>Asignatura eliminada</p>";
+            if (isset($_POST['eliminar']) && isset($_POST['ideliminar'])) {
+                $obj->eliminar_asignatura($_POST['ideliminar']);
+                echo "<p class='eliminada'>Asignatura eliminada</p>";
+
+                // Esto es para recargar la página y actualizar la lista de las materias a eliminar
+                header("Location: Eliminar_asignatura.php");
+                exit();
             }
             ?>
         </fieldset>
