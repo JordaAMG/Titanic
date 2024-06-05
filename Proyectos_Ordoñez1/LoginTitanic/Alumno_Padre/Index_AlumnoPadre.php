@@ -62,7 +62,7 @@
                 <section id="Contenedor_Botones">
                     <br>
                     <a id="Botones" href="Listar_Faltas_AlumnoPadre.php">Listar Faltas de Asistencia:</a><br><br><br>
-                    <a id="Botones" href="Verificarjustificantes_alumnopadre.php">Verificar justificante:</a><br><br><br>
+                    <a id="Botones" href="Justificantes_alumno.php">Verificar justificante:</a><br><br><br>
                 </section>
             </div>
         </article>

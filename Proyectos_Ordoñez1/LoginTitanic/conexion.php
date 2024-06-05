@@ -10,6 +10,9 @@ class Conexion {
 
     private function abrir_conexion(){
         $this->conexion = new mysqli($this->host, $this->usuario, $this->password, $this->base);
+        if ($this->conexion->connect_error) {
+            die("Error de conexión: " . $this->conexion->connect_error);
+        }
     }
 
     private function cerrar_conexion(){
@@ -29,9 +32,14 @@ class Conexion {
         return $result;
     }
 
-    public function justificante($Nombre,$Semestre,$Grupo,$Motivo){
-		$this->sentencia="INSERT INTO Justificante VALUES ('$Nombre','$Semestre','$Grupo','$Motivo')";//se crea la conexion
-		$bandera = $this->ejecutar_sentencia();
-	}
+    public function justificante($Nombre, $Semestre, $Grupo, $Motivo){
+        $this->sentencia = "INSERT INTO Justificante VALUES ('$Nombre', '$Semestre', '$Grupo', '$Motivo')";
+        $bandera = $this->ejecutar_sentencia();
+    }
+
+    public function getConexion() {
+        $this->abrir_conexion();
+        return $this->conexion;
+    }
 }
 ?>
