@@ -1,6 +1,8 @@
 <?php
 include("conexion.php");
 
+//sesion start sirve para iniciar una nueva sesion para el usuario
+ session_start();
 
 if (isset($_POST["btn_login"])) {
     $correo = $_POST['correo'];
