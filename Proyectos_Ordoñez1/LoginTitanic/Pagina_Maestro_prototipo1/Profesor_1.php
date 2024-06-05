@@ -17,8 +17,23 @@
             <input id="Imagen0" type="image" src="icon_usuario.PNG" alt="Enviar" width="60px" height="60px">
             <div id="Info_usuario1">
                 <p>Nombre del Profesor:</p>
-                <!--<input type="number" name="parcial_uno" value="<!?php echo isset($registro["parcial_uno"]) ? $registro["parcial_uno"] : ''; ?>" id="parcial_uno" step="0.1" min="0" max="10" required>-->
-                <p>Numero de cuenta:</p>
+                    <?php
+                        if (isset($_COOKIE['username'])) {
+                        $username = $_COOKIE['username'];
+                        echo "$username";
+                        } else {
+                            echo "No se ha encontrado el nombre.";
+                        }
+                    ?>
+                    <p>Numero de cuenta:</p>
+                    <?php
+                        if (isset($_COOKIE['matricula'])) {
+                        $matricula = $_COOKIE['matricula'];
+                            echo "$matricula";
+                        } else {
+                            echo "No se ha encontrado la matrícula.";
+                        }
+                    ?>
             </div>
         </article>
 

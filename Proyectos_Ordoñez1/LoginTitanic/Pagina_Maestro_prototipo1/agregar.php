@@ -7,6 +7,45 @@
     <link rel="stylesheet" href="agregar.css">
 </head>
 <body>
+
+    <header id="cabeza">
+            <article id="Info_usuario">
+                <input id="Imagen0" type="image" src="icon_usuario.PNG" alt="Enviar" width="60px" height="60px">
+                <a href=""></a>
+                <div id="Info_usuario1">
+                    <p>Nombre del Profesor:</p>
+                    <?php
+                        if (isset($_COOKIE['username'])) {
+                        $username = $_COOKIE['username'];
+                        echo "$username";
+                        } else {
+                            echo "No se ha encontrado el nombre.";
+                        }
+                    ?>
+                    <p>Numero de cuenta:</p>
+                    <?php
+                        if (isset($_COOKIE['matricula'])) {
+                        $matricula = $_COOKIE['matricula'];
+                            echo "$matricula";
+                        } else {
+                            echo "No se ha encontrado la matrícula.";
+                        }
+                    ?>
+               </div>
+            </article>
+
+            <article id="Info_ListAlumn">
+                <div>
+                    Listar Profesores:
+                </div>
+            </article>
+
+            <article id="cerrar_secion0">
+                <a href="?opc=cerrar_secion"> <li>Cerrar Secion</li> </a>
+                <input id="Imagen0" type="image" src="Icon_salir.PNG" alt="Enviar" width="30px" height="30px">
+            </article>
+        </header>
+
 <div class="ingreso">
     <h1>Ingreso de Calificaciones</h1>
 

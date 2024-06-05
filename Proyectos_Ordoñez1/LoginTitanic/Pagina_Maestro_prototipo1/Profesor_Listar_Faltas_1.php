@@ -18,7 +18,23 @@
                 <a href=""></a>
                 <div id="Info_usuario1">
                     <p>Nombre del Profesor:</p>
+                    <?php
+                        if (isset($_COOKIE['username'])) {
+                        $username = $_COOKIE['username'];
+                        echo "$username";
+                        } else {
+                            echo "No se ha encontrado el nombre.";
+                        }
+                    ?>
                     <p>Numero de cuenta:</p>
+                    <?php
+                        if (isset($_COOKIE['matricula'])) {
+                        $matricula = $_COOKIE['matricula'];
+                            echo "$matricula";
+                        } else {
+                            echo "No se ha encontrado la matrícula.";
+                        }
+                    ?>
                </div>
             </article>
 
