@@ -19,7 +19,7 @@ if (isset($_POST["modificar_alumno"])) {
 }
 if (isset($_POST["matricular_alumno"])) {
     // Redirigir a matricular_alumno alumno
-            header("Location: administrador/Agregar alumnos y maestros/Agregar_alumno.php");
+            header("Location: administrador/Matricular alumno en materia/Matricular_alumno.php");
             exit();
 }
 

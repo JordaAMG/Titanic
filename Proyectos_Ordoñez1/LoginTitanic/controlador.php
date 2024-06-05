@@ -1,6 +1,6 @@
-
 <?php
 include("conexion.php");
+
 
 if (isset($_POST["btn_login"])) {
     $correo = $_POST['correo'];
@@ -56,13 +56,17 @@ if (isset($_POST["btn_login"])) {
                     exit();
                 } else {
                     // Usuario no encontrado en ninguna tabla
-                    echo "Usuario no encontrado.";
+                    $_SESSION['error_message'] = "Usuario no encontrado.";
+                    header("Location: login.php");
+                    exit();
                 }
             }
         }
     } else {
         // Credenciales incorrectas
-        echo "Correo o contraseña incorrectos.";
+        $_SESSION['error_message'] = "Correo o contraseña incorrectos.";
+        header("Location: login.php");
+        exit();
     }
 }
 ?>
