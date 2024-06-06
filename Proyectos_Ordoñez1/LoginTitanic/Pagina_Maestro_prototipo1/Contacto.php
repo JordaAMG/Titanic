@@ -1,6 +1,6 @@
 <?php
    include ("Conexion.php");
-   Class Contacto extends conexion{
+   Class Contacto extends Conexion{
 
       //ejem
       public function alta($Titulo, $Actores, $Director, $Guion, $Produccion, $Anio, $Nacionalidad, $Duracion, $Genero, $Restricciones, $Sinopsis){
@@ -54,7 +54,7 @@
          $this->sentencia = "SELECT calificaciones.id_calificacion_parcial, calificaciones.parcial_uno, calificaciones.parcial_dos, calificaciones.parcial_tres  
          FROM calificaciones
          INNER JOIN alumnos
-         ON calificaciones.matricula_alumno = alumnos.matricula_alumno
+         ON calificaciones.matricula_alumno = alumnos.matricula_alumno;
          WHERE alumnos.matricula_alumno = $matricula_alumno";
          $resultado = $this->obtener_sentencia(); 
          return $resultado;

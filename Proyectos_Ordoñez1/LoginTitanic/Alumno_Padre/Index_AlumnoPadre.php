@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colegio Montellano</title>
-    <link rel="stylesheet" type="text/css" href="Index_AlumnoPadre.css">
+    <title>Colegio Montellano - Alumno</title>
+    <link rel="stylesheet" type="text/css" href="index_alumnopadre.css">
 </head>
 <body>
 <div id="agrupar">
@@ -13,17 +13,37 @@
         <h1>Interfaz Alumno</h1>
     </header>
 
-    <div id="info-alumno">
+    <div id="info-usuario">
         <img src="icon_usuario.PNG" alt="Usuario" width="60px" height="60px">
         <div id="Info_usuario1">
             <p>Nombre del Alumno:</p>
-            <p>Numero de cuenta:</p>
+            <p>
+                <?php
+                    if (isset($_COOKIE['username'])) {
+                        $username = $_COOKIE['username'];
+                        echo "$username";
+                    } else {
+                        echo "No se ha encontrado el nombre.";
+                    }
+                ?>
+            </p>
+            <p>Número de cuenta:</p>
+            <p>
+                <?php
+                    if (isset($_COOKIE['matricula'])) {
+                        $matricula = $_COOKIE['matricula'];
+                        echo "$matricula";
+                    } else {
+                        echo "No se ha encontrado la matrícula.";
+                    }
+                ?>
+            </p>
         </div>
     </div>
 
     <section>
         <article id="Acciones">
-            <div id="Tabla0">
+            <div id="Tabla0" class="tabla">
                 <header id="Titulo_tablas0">
                     <p>Listar:</p>
                 </header>
@@ -34,7 +54,7 @@
                 </section>
             </div>
 
-            <div id="Tabla1">
+            <div id="Tabla1" class="tabla">
                 <header id="Titulo_tablas0">
                     <p>Consultar:</p>
                 </header>
@@ -43,7 +63,7 @@
                 </section>
             </div>
 
-            <div id="Tabla2">
+            <div id="Tabla2" class="tabla">
                 <header id="Titulo_tablas0">
                     <p>Modificar:</p>
                 </header>
@@ -62,6 +82,6 @@
 </div>
 
 <!-- Botón de cerrar sesión -->
-<a class="cerrar-sesion" href="../login.php">Cerrar Sesión</a>
+<a class="logout-button" href="../login.php">Cerrar Sesión</a>
 </body>
 </html>

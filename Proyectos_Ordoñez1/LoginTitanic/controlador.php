@@ -32,7 +32,7 @@ if (isset($_POST["btn_login"])) {
                 
                 if ($resultado_alumno->num_rows > 0) {
                     // Redirigir a la interfaz de alumno
-                    header("Location: inicioalumno.php");
+                    header("Location: Alumno_Padre/Index_AlumnoPadre.php");
                     exit();
                 } else {
                     // Usuario no encontrado en ninguna tabla

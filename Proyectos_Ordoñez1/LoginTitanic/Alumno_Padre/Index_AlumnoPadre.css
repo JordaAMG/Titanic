@@ -6,101 +6,82 @@ body {
 }
 
 #agrupar {
-    width: 90%;
-    margin: auto;
-    padding: 20px;
     background-color: #fff;
+    margin: 20px auto;
     border-radius: 10px;
-    position: relative;
-    min-height: 100vh;
-    padding-bottom: 80px; 
+    max-width: 1200px;
+    padding: 20px;
 }
 
 #cabeza {
+    color: black;
     text-align: center;
-    background-color: #1e3d7b;
-    color: #fff;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
+    margin-bottom: 20px;
 }
 
-#cabeza h1 {
-    margin: 0;
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-#info-alumno {
-    display: flex;
-    align-items: center;
+#info-usuario {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
     background-color: #1e3d7b;
     color: #fff;
-    padding: 10px;
     border-radius: 10px;
-    margin: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#info-alumno img {
-    margin-right: 10px;
+#info-usuario img {
+    margin-right: 20px;
+}
+
+#Info_usuario1 p {
+    margin: 5px 0;
 }
 
 section {
-    margin: 20px 0;
-}
-
-#Acciones {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-#Acciones > div {
-    background-color: #1e3d7b;
-    color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
+    width: 80%;
+    margin: 20px auto;
     text-align: center;
 }
 
-#Titulo_tablas0 {
-    background-color: transparent;
+.tabla {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #1e3d7b;
     color: #fff;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
-    font-size: 1.5em;
-    font-weight: bold;
+    border-radius: 10px;
+}
+
+#Titulo_tablas0 {
+    margin-bottom: 20px;
+    color: white;
 }
 
 #Contenedor_Botones {
-    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 #Botones {
-    display: block;
+    width: 100%;
+    padding: 15px 0;
     background-color: #007bff;
     color: white;
-    padding: 10px;
-    margin: 10px 0;
+    border: none;
     border-radius: 5px;
     text-decoration: none;
+    text-align: center;
+    font-size: 16px;
 }
 
 #Botones:hover {
     background-color: #0056b3;
 }
 
-footer {
-    background-color: #1e3d7b;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    border-radius: 0 0 10px 10px;
-    margin-top: 20px;
-}
-
-.cerrar-sesion {
+.logout-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -114,56 +95,100 @@ footer {
     display: inline-block;
 }
 
-.cerrar-sesion:hover {
+.logout-button:hover {
     background-color: #0056b3;
 }
 
-/* Para tablet*/
+#Pie_Pagina {
+    background-color: #1e3d7b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    margin-top: 20px;
+}
+
+/* Puntos de quiebre para pantallas medianas y pequeñas */
 @media (max-width: 1200px) {
-    #agrupar {
-        width: 95%;
+    #cabeza, #info-usuario, section {
+        width: 90%;
+    }
+    
+    #info-usuario, section {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    #Botones {
+        padding: 12px 0;
+        font-size: 15px;
+    }
+    
+    .logout-button {
+        padding: 8px 18px;
+        font-size: 15px;
     }
 }
 
 @media (max-width: 768px) {
-    #agrupar {
-        width: 100%;
+    #cabeza, #info-usuario, section {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    section {
         padding: 10px;
+        margin-bottom: 30px;
     }
-
-    #info-alumno {
-        flex-direction: column;
-        text-align: center;
+    
+    h1 {
+        font-size: 1.5em;
     }
-
-    #info-alumno img {
-        margin-bottom: 10px;
+    
+    #Titulo_tablas0 {
+        font-size: 1.2em;
     }
-
-    #Acciones {
-        gap: 10px;
-    }
-
-    #Acciones > div {
-        padding: 10px;
-    }
-
+    
     #Botones {
-        padding: 8px;
+        padding: 10px 0;
+        font-size: 14px;
+    }
+    
+    .logout-button {
+        padding: 7px 15px;
         font-size: 14px;
     }
 }
 
-
-
-/* Para telefono*/
 @media (max-width: 480px) {
-    #cabeza h1 {
-        font-size: 1.5em;
+    #cabeza, #info-usuario, section {
+        width: 100%;
+        padding: 10px;
     }
-
+    
+    section {
+        padding: 8px;
+        margin-bottom: 20px;
+    }
+    
+    h1 {
+        font-size: 1.2em;
+    }
+    
+    #Titulo_tablas0 {
+        font-size: 1em;
+    }
+    
     #Botones {
-        padding: 6px;
+        padding: 8px 0;
+        font-size: 12px;
+    }
+    
+    .logout-button {
+        padding: 5px 12px;
         font-size: 12px;
     }
 }
