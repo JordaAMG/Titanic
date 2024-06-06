@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colegio Montellano</title>
+    <title>Colegio Montellano - Alumno</title>
     <link rel="stylesheet" type="text/css" href="Index_AlumnoPadre.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
         <h1>Interfaz Alumno</h1>
     </header>
 
-    <div id="info-alumno">
+    <div id="info-usuario">
         <img src="icon_usuario.PNG" alt="Usuario" width="60px" height="60px">
         <div id="Info_usuario1">
             <p>Nombre del Alumno:</p>
@@ -43,7 +43,7 @@
 
     <section>
         <article id="Acciones">
-            <div id="Tabla0">
+            <div id="Tabla0" class="tabla">
                 <header id="Titulo_tablas0">
                     <p>Listar:</p>
                 </header>
@@ -54,7 +54,7 @@
                 </section>
             </div>
 
-            <div id="Tabla1">
+            <div id="Tabla1" class="tabla">
                 <header id="Titulo_tablas0">
                     <p>Consultar:</p>
                 </header>
@@ -63,7 +63,7 @@
                 </section>
             </div>
 
-            <div id="Tabla2">
+            <div id="Tabla2" class="tabla">
                 <header id="Titulo_tablas0">
                     <p>Modificar:</p>
                 </header>
@@ -82,6 +82,6 @@
 </div>
 
 <!-- Botón de cerrar sesión -->
-<a class="cerrar-sesion" href="../login.php">Cerrar Sesión</a>
+<a class="logout-button" href="../login.php">Cerrar Sesión</a>
 </body>
 </html>

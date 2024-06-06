@@ -57,9 +57,8 @@
                 </form>
             </div>
         </div>
-    </div>
-
-     <div class="section">
+    
+        <div class="section">
             <h2 class="subtitulo">Justificantes</h2>
             <div class="button-group">
                 <form action="controlador.php" method="post">
@@ -68,7 +67,6 @@
             </div>
         </div>
     </div>
-
 
     <a class="logout-button" href="../../login.php">Cerrar Sesión</a>
 </body>

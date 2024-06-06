@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>horarios</title>
-	<link rel="stylesheet" type="text/css" href="principalhorario.css">
+	<link rel="stylesheet" type="text/css" href="Listar_alumnos.css">
 </head>
 <body>
 	<div id="caja">

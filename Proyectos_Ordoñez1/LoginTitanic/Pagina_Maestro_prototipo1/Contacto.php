@@ -1,6 +1,6 @@
 <?php
    include ("Conexion.php");
-   Class Contacto extends conexion{
+   Class Contacto extends Conexion{
 
       //ejem
       public function alta($Titulo, $Actores, $Director, $Guion, $Produccion, $Anio, $Nacionalidad, $Duracion, $Genero, $Restricciones, $Sinopsis){

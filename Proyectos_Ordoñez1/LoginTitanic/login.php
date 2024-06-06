@@ -7,8 +7,9 @@
     <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body class="cuerpo">
-    
-    <input id="btnregresar" type="submit" value="Regresar">
+    <form method="POST" action="controlador.php">
+        <input id="btnregresar" type="submit" name="btn_regresar" value="Regresar">
+    </form>
 
     <h1>Titanic X MONTELLANO</h1>
 
