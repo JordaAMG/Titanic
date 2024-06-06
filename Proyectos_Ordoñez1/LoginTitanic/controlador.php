@@ -25,7 +25,6 @@ if (isset($_POST["btn_login"])) {
             if ($resultado_prof->num_rows > 0) {
 
                 $row_prof = $resultado_prof->fetch_assoc(); // Convertir la fila resultante en un array asociativo
-                //setcookie("Nombre", $resultado_prof, time() + (60 * 60 * 24 * 30), "/"); // Cookie válida por 30 días en todo el dominio
 
                 setcookie("username", $row_prof['nombre_completo'], time() + (60 * 60 * 24 * 30), "/");
                 setcookie("matricula", $row_prof['matricula_profesor'], time() + (60 * 60 * 24 * 30), "/");//borrrar en cerrar secion
@@ -38,10 +37,11 @@ if (isset($_POST["btn_login"])) {
                 $resultado_alumno = $conexion->obtener_sentencia();
                 
                 if ($resultado_alumno->num_rows > 0) {
+                    $row_prof = $resultado_alumno->fetch_assoc(); // Convertir la fila resultante en un array asociativo
+                    setcookie("username", $resultado_alumno['nombre_completo'], time() + (60 * 60 * 24 * 30), "/");
+                    setcookie("matricula", $resultado_alumno['matricula_profesor'], time() + (60 * 60 * 24 * 30), "/");//borrrar en cerrar secion
                     // Redirigir a la interfaz de alumno
                     header("Location: inicioalumno.php");
-                    setcookie("username", $resultado_alumno, time() + (60 * 60 * 24 * 30), "/");
-                    setcookie("username", $resultado_alumno, time() + (60 * 60 * 24 * 30), "/"); // Cookie válida por 30 días en todo el dominio y borrarla cuando se cierre secion
                     exit();
                 } else {
                     // Usuario no encontrado en ninguna tabla

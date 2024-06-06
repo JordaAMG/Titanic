@@ -63,8 +63,7 @@
 
                         $obj = new contacto(); // Crea una nueva instancia de la clase Contacto
 
-                        $matricula_profesor = 2; // Define la matrícula del profesor a consultar 
-                        //hola brian
+                        $matricula_profesor = $_COOKIE['matricula']; // Define la matrícula del profesor a consultar 
 
                         $resultado = $obj->consultar_Materias($matricula_profesor); // Llama al método consultar_Materias de la clase Contacto, pasando la matrícula del profesor como parámetro y almacena el resultado en la variable $resultado
 
@@ -89,7 +88,7 @@
                             if ($resultado->num_rows > 0) {
                             // Mostrar las materias
                                 while ($fila = $resultado->fetch_assoc()) {
-                                    echo '<a href="?opc2=' . $fila["id_grupo"] . '">' . $fila["nombre_grupo"] . '</a>';
+                                    echo '<a href="?opc2=' . $fila["id_grupo"] . '">' . $fila["nombre_grupo"] . ' ' . $fila["semestre"] .'</a>';
                                     echo '<br>';
                                 }
                             } else {
