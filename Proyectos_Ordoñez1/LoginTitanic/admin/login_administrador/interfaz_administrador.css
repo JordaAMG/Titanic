@@ -54,14 +54,14 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #007bff;
 }
 
 .logout-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #1e3d7b;
+    background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -73,4 +73,91 @@ input[type="submit"]:hover {
 
 .logout-button:hover {
     background-color: #0056b3;
+}
+
+/* Punto de quiebre para pantallas medianas */
+@media (max-width: 1200px) {
+    .titulo {
+        width: 90%;
+    }
+    
+    .section {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    input[type="submit"] {
+        padding: 12px 0;
+        font-size: 15px;
+    }
+    
+    .logout-button {
+        padding: 8px 18px;
+        font-size: 15px;
+    }
+}
+
+/* Punto de quiebre para pantallas pequeñas */
+@media (max-width: 768px) {
+    .titulo {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .section {
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    h2 {
+        font-size: 1.2em;
+    }
+    
+    input[type="submit"] {
+        padding: 10px 0;
+        font-size: 14px;
+    }
+    
+    .logout-button {
+        padding: 7px 15px;
+        font-size: 14px;
+    }
+}
+
+/* Punto de quiebre para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .titulo {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .section {
+        padding: 8px;
+        margin-bottom: 20px;
+    }
+    
+    h1 {
+        font-size: 1.2em;
+    }
+    
+    h2 {
+        font-size: 1em;
+    }
+    
+    input[type="submit"] {
+        padding: 8px 0;
+        font-size: 12px;
+    }
+    
+    .logout-button {
+        padding: 5px 12px;
+        font-size: 12px;
+    }
 }

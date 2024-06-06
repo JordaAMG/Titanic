@@ -15,6 +15,13 @@
     <div class="login">
         <div class="login-box">
             <h1>Inicio de Sesión</h1>
+            <?php
+            session_start();
+            if (isset($_SESSION['error_message'])) {
+                echo "<p style='color:red;'>" . $_SESSION['error_message'] . "</p>";
+                unset($_SESSION['error_message']);
+            }
+            ?>
             <form method="POST" action="controlador.php">
                 <label for="username">Usuario</label>
                 <input type="text" id="username" name="correo" placeholder="Ingrese su correo" required>

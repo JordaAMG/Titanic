@@ -17,52 +17,54 @@ body {
     color: white;
 }
 
-fieldset {
-    border: none;
-    padding: 0;
-}
-
-legend {
+h1 {
     font-size: 2em;
     font-weight: bold;
     color: #007bff;
     margin-bottom: 20px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
 }
 
-label, input, select {
-    margin-bottom: 10px;
-    width: 100%;  
+ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-input[type="number"],
-input[type="text"],
-input[type="time"],
-input[type="submit"],
-select {
-    padding: 10px;
-    font-size: 1em;
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
     border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;  
-    box-sizing: border-box;
+}
+
+th, td {
+    padding: 10px;
     text-align: center;
 }
 
-input[type="submit"] {
+th {
     background-color: #007bff;
     color: white;
-    border: none;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #0056b3;
 }
 
 .button {
@@ -80,11 +82,4 @@ input[type="submit"]:hover {
 
 .button:hover {
     background-color: #e53935;
-}
-
-.modificada {
-    color: white;
-    margin-top: 20px;
-    font-size: 1em;
-    font-weight: bold;
 }

@@ -7,87 +7,85 @@
     <link rel="stylesheet" type="text/css" href="ProfesorCSS_1.css">
 </head>
 <body>
-<div id ="agrupar">
+<div class="container">
+    <div class="titulo">
+        <h1>Interfaz Profesor</h1>
+    </div>
 
-    <div id="Color_arriba0"></div>
-    <div id="Color_arriba1"></div>
-
-    <Header id="cabeza"> 
-        <article id="Info_usuario">
-            <input id="Imagen0" type="image" src="icon_usuario.PNG" alt="Enviar" width="60px" height="60px">
+    <div class="info-usuario">
+        <div id="Info_usuario">
+            <img src="icon_usuario.PNG" alt="Usuario" width="60px" height="60px">
             <div id="Info_usuario1">
                 <p>Nombre del Profesor:</p>
+                <p>
                     <?php
                         if (isset($_COOKIE['username'])) {
-                        $username = $_COOKIE['username'];
-                        echo "$username";
+                            $username = $_COOKIE['username'];
+                            echo "$username";
                         } else {
                             echo "No se ha encontrado el nombre.";
                         }
                     ?>
-                    <p>Numero de cuenta:</p>
+                </p>
+                <p>Numero de cuenta:</p>
+                <p>
                     <?php
                         if (isset($_COOKIE['matricula'])) {
-                        $matricula = $_COOKIE['matricula'];
+                            $matricula = $_COOKIE['matricula'];
                             echo "$matricula";
                         } else {
                             echo "No se ha encontrado la matrícula.";
                         }
                     ?>
+                </p>
             </div>
-        </article>
+        </div>
+    </div>
 
-        <article id="cerrar_secion0">
-            <a id="Info_Cerrar_secion" href="?opc=Cerrar_sesión1">Cerrar Secion</a>
-            <input id="Imagen0" type="image" src="Icon_salir.PNG" alt="Enviar" width="30px" height="30px">
-        </article>
-    </Header>
+    <div class="section">
+        <h2>Listar</h2>
+        <div class="button-group">
+            <form action="Profesor_Listar_Alumnos_3.php" method="get">
+                <input type="submit" value="Listar Alumnos">
+            </form>
+            <form action="Profesor_Listar_Profesores_1.php" method="get">
+                <input type="submit" value="Listar Profesores">
+            </form>
+            <form action="Profesor_Listar_Faltas_1.php" method="get">
+                <input type="submit" value="Listar Faltas">
+            </form>
+        </div>
+    </div>
 
-    <nav>
-    </nav>
+    <div class="section">
+        <h2>Agregar</h2>
+        <div class="button-group">
+            <form action="agregar.php" method="get">
+                <input type="submit" value="Poner Calificaciones">
+            </form>
+            <form action="faltas.php" method="get">
+                <input type="submit" value="Poner Faltas Asistencia">
+            </form>
+        </div>
+    </div>
 
-    <section>
-        <article id="Acciones">
-            <div id="Tabla0"><!--listar-->
-                <header id="Titulo_tablas0">
-                    <p>Listar:</p>
-                </header>
-                <section id="Contenedor_Botones">
-                    <br>
-                        <a id="Botones" href="Profesor_Listar_Alumnos_3.php">Listar Alumnos</a><br><br><br>
-                        <a id="Botones" href="Profesor_Listar_Profesores_1.php">Listar Profesores</a><br><br><br>
-                        <a id="Botones" href="Profesor_Listar_Faltas_1.php">Listar Faltas</a><br><br><br>
-                </section>
-            </div>
+    <div class="section">
+        <h2>Modificar</h2>
+        <div class="button-group">
+            <form action="Profesor_Modificar_Calificaciones.php" method="get">
+                <input type="submit" value="Modificar Calificaciones">
+            </form>
+            <form action="Modificar_Faltas_De_Asistencia.php" method="get">
+                <input type="submit" value="Modificar Faltas Asistencia">
+            </form>
+        </div>
+    </div>
 
-            <div id="Tabla1"><!--agragar-->
-                <header id="Titulo_tablas0">
-                    <p>Agregar:</p>
-                </header>
-                <section id="Contenedor_Botones">
-                    <br>
-                    <a id="Botones" href="agregar.php">Poner Calificaciones</a><br><br><br>
-                    <a id="Botones" href="faltas.php">Poner Faltas Asistencia</a><br><br><br>
-                </section>
-            </div>
+    <a class="cerrar_sesion" href="../login.php">Cerrar Sesión</a>
 
-            <div id="Tabla2"><!--modificar-->
-                <header id="Titulo_tablas0">
-                    <p>Modificar:</p>
-                </header>
-                <section id="Contenedor_Botones">
-                    <br>
-                    <a id="Botones" href="Profesor_Modificar_Calificaciones.php">Modificar Calificaciones</a><br><br><br>
-                    <a id="Botones" href="Modificar_Faltas_De_Asistencia.php">Modificar Faltas Asistencia</a><br><br><br>
-                </section>
-            </div>
-        </article>
-    </section>
-
-    <footer id="Pie_Pagina"> <p>Correo: Motellano@mtn.com              Celular: 312- 345 - 4321</p> </footer>
-
-
-
+    <footer>
+        <p>Correo: Montellano@mtn.com | Celular: 312-345-4321</p>
+    </footer>
 </div>
 </body>
 </html>

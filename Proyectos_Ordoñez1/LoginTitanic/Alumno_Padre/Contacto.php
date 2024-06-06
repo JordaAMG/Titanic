@@ -1,6 +1,6 @@
 <?php 
    include ("Conexion.php");
-   Class Contacto extends conexion{
+   Class Contacto extends Conexion{
 
     /*public function Listar_Profesores(){
         $this->sentencia = "SELECT nombre_completo FROM profesores;";
@@ -55,6 +55,10 @@
         return $resultado;
     }
 
+?>
+
+
+
 
 
 
@@ -70,13 +74,7 @@
             return $resultado;
         }
 
-        public function consultar_horario_por_matricula($matricula_alumno){
-            $this->sentencia = "SELECT horarios.dia, horarios.inicio, horarios.fin, materias.nombre FROM horarios JOIN materias ON horarios.id_materia = materias.id_materia JOIN grupos ON horarios.id_materia = grupos.id_materia WHERE grupos.matricula_alumno = 1;";
-            $this->preparar_sentencia();
-            $this->stmt->bind_param("i", $matricula_alumno);
-            $resultado = $this->obtener_sentencia();
-            return $resultado;
-        }
+        
 
 /* SELECT horarios.dia, horarios.inicio, horarios.fin, materias.nombre FROM horarios JOIN materias ON horarios.id_materia = materias.id_materia JOIN grupos ON horarios.id_materia = grupos.id_materia WHERE grupos.matricula_alumno = materias.id_materia;
 

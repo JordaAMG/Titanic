@@ -36,11 +36,23 @@
             if (isset($_POST["cargar"]) && isset($_POST["idmodificar"])) {
                 $resultado = $obj->consultar_asignaturas($_POST["idmodificar"]);
                 if ($registro = $resultado->fetch_assoc()) {
+                    $horario = $obj->consultar_horario($_POST["idmodificar"]);
+                    $horario_registro = $horario->fetch_assoc();
             ?>
                     <form action="" method="post">
                         <input type="hidden" name="id_materia" value="<?php echo $registro["id_materia"]; ?>">
                         Nombre de la materia: <input type="text" name="nombre" value="<?php echo $registro["nombre"]; ?>" required><br>
                         Matrícula del maestro que da la materia: <input type="text" name="matricula_profesor" value="<?php echo $registro["matricula_profesor"]; ?>" required><br>
+                        Seleccione el día del horario:
+                        <select name="dia" required>
+                            <option value="Lunes" <?php echo $horario_registro['dia'] == 'Lunes' ? 'selected' : ''; ?>>Lunes</option>
+                            <option value="Martes" <?php echo $horario_registro['dia'] == 'Martes' ? 'selected' : ''; ?>>Martes</option>
+                            <option value="Miércoles" <?php echo $horario_registro['dia'] == 'Miércoles' ? 'selected' : ''; ?>>Miércoles</option>
+                            <option value="Jueves" <?php echo $horario_registro['dia'] == 'Jueves' ? 'selected' : ''; ?>>Jueves</option>
+                            <option value="Viernes" <?php echo $horario_registro['dia'] == 'Viernes' ? 'selected' : ''; ?>>Viernes</option>
+                        </select><br>
+                        Hora de inicio: <input type="time" name="inicio" value="<?php echo $horario_registro['inicio']; ?>" required><br>
+                        Hora de fin: <input type="time" name="fin" value="<?php echo $horario_registro['fin']; ?>" required><br>
                         <input type="hidden" name="idmodificar" value="<?php echo $_POST["idmodificar"]; ?>">
                         <input type="submit" name="modificar" value="Modificar asignatura">
                     </form>
@@ -51,13 +63,16 @@
             }
 
             if (isset($_POST["modificar"])) {
-                if (isset($_POST['id_materia'], $_POST['nombre'], $_POST['matricula_profesor'])) {
+                if (isset($_POST['id_materia'], $_POST['nombre'], $_POST['matricula_profesor'], $_POST['dia'], $_POST['inicio'], $_POST['fin'])) {
                     $id_materia = $_POST['id_materia'];
                     $nombre = $_POST['nombre'];
                     $matricula_profesor = $_POST['matricula_profesor'];
+                    $dia = $_POST['dia'];
+                    $inicio = $_POST['inicio'];
+                    $fin = $_POST['fin'];
 
-                    if ($obj->modificar_asignatura($id_materia, $nombre, $matricula_profesor)) {
-                        echo "<p>Asignatura modificada</p>";
+                    if ($obj->modificar_asignatura($id_materia, $nombre, $matricula_profesor, $dia, $inicio, $fin)) {
+                        echo "<p class='modificada'>Asignatura modificada</p>";
                     } else {
                         echo "<p>No existe un profesor con esa matrícula.</p>";
                     }

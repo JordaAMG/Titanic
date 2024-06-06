@@ -59,6 +59,17 @@
         </div>
     </div>
 
+     <div class="section">
+            <h2 class="subtitulo">Justificantes</h2>
+            <div class="button-group">
+                <form action="controlador.php" method="post">
+                    <input type="submit" name="justificantes" value="Aceptar o Rechazar justificantes">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
     <a class="logout-button" href="../../login.php">Cerrar Sesión</a>
 </body>
 </html>

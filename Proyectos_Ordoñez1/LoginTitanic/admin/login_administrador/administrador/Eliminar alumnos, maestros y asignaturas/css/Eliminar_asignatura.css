@@ -19,6 +19,7 @@ body {
 
 fieldset {
     border: none;
+    padding: 0;
 }
 
 legend {
@@ -34,8 +35,12 @@ form {
     align-items: center;
 }
 
-select, input[type="submit"] {
+label, input, select {
     margin-bottom: 10px;
+    width: 100%;
+}
+
+input[type="submit"] {
     padding: 10px;
     font-size: 1em;
     border: 1px solid #ccc;
@@ -43,9 +48,6 @@ select, input[type="submit"] {
     width: 100%;
     box-sizing: border-box;
     text-align: center;
-}
-
-input[type="submit"] {
     background-color: #007bff;
     color: white;
     border: none;
@@ -73,8 +75,9 @@ input[type="submit"]:hover {
     background-color: #e53935;
 }
 
-p {
-    margin-top: 20px;
-    font-size: 1.2em;
+.eliminada {
     color: white;
+    margin-top: 20px;
+    font-size: 1em;
+    font-weight: bold;
 }

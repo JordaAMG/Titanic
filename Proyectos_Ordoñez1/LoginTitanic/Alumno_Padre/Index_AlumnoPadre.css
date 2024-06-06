@@ -1,376 +1,169 @@
-
-@media(max-width: 600px){
-	*{
-		margin: auto;
-		padding: auto;
-		
-	}
-	/* Prueba */
-	#agrupar{
-		background: #A6A6A6;
-	}
-
-	#Color_arriba0{
-		background: #4372A1;
-		padding: 30px;
-	}
-
-	#Color_arriba1{
-		background: #3E5E7F;
-		padding: 20px;
-	}
-
-	#cabeza{
-		margin: 0 auto;
-	    padding: 10px;
-	}
-
-	#Acciones{
-		float: center;
-		width: 70%; /* Ancho del contenedor */
-	}
-
-	#Info_usuario{
-		background: #0097B2;
-		width: 60%;
-	    padding: 10px;
-	    border-radius: 15px; /* Define el radio de las esquinas */
-	    font-size: 28px;
-	    float: center;
-	    display: inline-table;
-	}
-
-	#cerrar_secion0{
-		background: #0097B2;
-		width: 40%;
-	    margin: 10px; 
-	    padding: 10px;
-	    font-size: 19px;
-	    border-radius: 25px; /* Define el radio de las esquinas */
-	}
-
-	#Pie_Pagina{
-		clear: both;
-	    background: #708090;
-	    text-align: center;
-	    padding: 10px;
-	}
-
-	#Tabla0{
-		background: #4372A1;
-	    margin: 10px; 
-	    border-radius: 25px; /* Define el radio de las esquinas */
-	}
-
-	#Tabla1{
-		background: #4372A1;
-	    margin: 10px; 
-	    border-radius: 25px; /* Define el radio de las esquinas */
-	}
-
-	#Tabla2{
-		background: #4372A1;
-	    margin: 10px; 
-	    border-radius: 25px; /* Define el radio de las esquinas */
-
-
-	}
-
-	#Titulo_tablas0{
-		background: #3E5E7F;
-		border-radius: 10px; /* Define el radio de las esquinas */
-		text-align: center;
-		font-size: 35px;
-
-		padding: 10px;
-	}
-
-	#Contenedor_Botones{
-		text-align: center;
-	}
-
-	#Botones{
-		background: ffffff;
-		text-align: center; 
-		padding: 15px 32px;
-        width: 70%;
-        border-radius: 25px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border: none; 
-	}
-
-	#Info_usuario1{
-		display: inline-block;
-		margin: 4px;
-	}
-
-	#Info_Cerrar_secion{
-		display: inline-block;
-		background: #0097B2;
-		cursor: pointer;
-        border: none;
-        border-radius: 25px;
-        font-size: 100%;
-	}
-	
-	
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
 }
 
-@media(min-width: 600px) and (max-width: 1200px){
-	*{
-		margin: auto;
-		padding: auto;
-	}
-	#agrupar{
-		background: #A6A6A6;
-	}
-
-	#Color_arriba0{
-		background: #4372A1;
-		padding: 30px;
-	}
-
-	#Color_arriba1{
-		background: #3E5E7F;
-		padding: 20px;
-	}
-
-	#cabeza{
-	    margin: 0 auto; /* Centrar horizontalmente */
-	    padding: 10px;
-	}
-
-	#Acciones{
-		float: center;
-		width: 70%; /* Ancho del contenedor */
-	}
-
-	#Info_usuario{
-		background: #0097B2;
-		width: 50%;
-	    padding: 10px;
-	    border-radius: 15px; /* Define el radio de las esquinas */
-	    display: inline-table;
-	    font-size: 28px;
-	    float: center;
-	}
-
-	#cerrar_secion0{
-		background: #0097B2;
-		width: 30%;
-	    padding: 10px;
-	    font-size: 19px;
-	    border-radius: 25px; /* Define el radio de las esquinas */
-	    display: inline-table;
-	    float: right;
-	}
-
-	#Pie_Pagina{
-		clear: both;
-	    background: #708090;
-	    text-align: center;
-	    padding: 10px;
-	}
-
-	#Tabla0{
-		background: #4372A1;
-	    margin: 10px; 
-	    border-radius: 25px; /* Define el radio de las esquinas */
-	}
-
-	#Tabla1{
-		background: #4372A1;
-	    margin: 10px; 
-	    border-radius: 25px; /* Define el radio de las esquinas */
-	}
-
-	#Tabla2{
-	    background: #4372A1;
-	    margin: 10px; 
-	    border-radius: 25px; /* Define el radio de las esquinas */
-	}
-
-	#Titulo_tablas0{
-		background: #3E5E7F;
-		border-radius: 10px; /* Define el radio de las esquinas */
-		text-align: center;
-		font-size: 35px;
-		padding: 10px;
-	}
-
-	#Contenedor_Botones{
-		text-align: center;
-	}
-
-	#Botones{
-		background: ffffff;
-		text-align: center; 
-		padding: 15px 32px;
-        width: 70%;
-        border-radius: 25px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border: none;
-	    font-size: 19px;
-	}
-
-	#Info_usuario1{
-		display: inline-block;
-		margin: 4px;
-
-	}
-
-	#Info_Cerrar_secion{
-		display: inline-block;
-		background: #0097B2;
-		cursor: pointer;
-        border: none;
-        border-radius: 25px;
-        font-size: 100%;
-	}
-	
-	
-
-	
-
+#agrupar {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 80px; 
 }
 
-@media(min-width: 1200px){
-	*{
-		margin: auto;
-		padding: auto;
-	}
+#cabeza {
+    text-align: center;
+    background-color: #1e3d7b;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
 
-	#agrupar{
-		background: #A6A6A6;
-		height: 98%;
-	}
+#cabeza h1 {
+    margin: 0;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
 
-	#Color_arriba0{
-		background: #4372A1;
-		padding: 30px;
-	}
+#info-alumno {
+    display: flex;
+    align-items: center;
+    background-color: #1e3d7b;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
 
-	#Color_arriba1{
-		background: #3E5E7F;
-		padding: 20px;
-	}
+#info-alumno img {
+    margin-right: 10px;
+}
 
-	#cabeza{
-	    margin: 0 auto; /* Centrar horizontalmente */
-	    padding: 10px;
-	}
+section {
+    margin: 20px 0;
+}
 
-	#Acciones{
-		float: center;
-		width: 100%; /* Ancho del contenedor */
-		text-align: center; 
-        border-radius: 25px;
-	}
+#Acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
-	#Info_usuario{
-		background: #0097B2;
-		width: 40%;
-	    padding: 10px;
-	    border-radius: 25px; /* Define el radio de las esquinas */
-	    display: inline-table;
-	    font-size: 28px; 
-	    float: center;
-	}
+#Acciones > div {
+    background-color: #1e3d7b;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
 
-	#cerrar_secion0{
-		background: #0097B2;
-		width: 15%; 
-	    padding: 10px;
-	    border-radius: 25px; /* Define el radio de las esquinas */
-	    display: inline-table;
-	    float: right;
-	    font-size: 19px;
-	    
-	}
+#Titulo_tablas0 {
+    background-color: transparent;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
 
-	#Pie_Pagina{
-		clear: both;
-	    background: #708090;
-	    text-align: center;
-	    padding: 10px;
-	    height: 2%;
-	    width: 100%
-	    position: static;
-	}
+#Contenedor_Botones {
+    margin-top: 10px;
+}
 
-	#Tabla0{
-		background: #4372A1;
-		width: 30%;
-	    margin: 10px; 
-	    border-radius: 25px; /* Define el radio de las esquinas */
-	    display: inline-table;
-	    height: 500px;
+#Botones {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-decoration: none;
+}
 
-	}
+#Botones:hover {
+    background-color: #0056b3;
+}
 
-	#Tabla1{
-		background: #4372A1;
-		width: 30%;
-	    margin: 10px; 
-	    border-radius: 25px; /* Define el radio de las esquinas */
-	    display: inline-table;
-	    height: 500px;
-	}
+footer {
+    background-color: #1e3d7b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    margin-top: 20px;
+}
 
-	#Tabla2{
-		background: #4372A1;
-		width: 30%;
-	    margin: 10px; 
-	    border-radius: 25px; /* Define el radio de las esquinas */
-	    display: inline-table;
-	    height: 500px;
-	}
+.cerrar-sesion {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+}
 
-	#Titulo_tablas0{
-		background: #3E5E7F;
-		border-radius: 25px; /* Define el radio de las esquinas */
-		text-align: center;
-		font-size: 35px;
-		padding: 10px;
-	}
+.cerrar-sesion:hover {
+    background-color: #0056b3;
+}
 
-	#Contenedor_Botones{
-		text-align: center;
-	}
+/* Para tablet*/
+@media (max-width: 1200px) {
+    #agrupar {
+        width: 95%;
+    }
+}
 
-	#Botones{
-		background: ffffff;
-		text-align: center; 
-		padding: 15px 32px;
-        width: 70%;
-        border-radius: 25px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border: none;
-	    font-size: 19px;
-	}
+@media (max-width: 768px) {
+    #agrupar {
+        width: 100%;
+        padding: 10px;
+    }
 
-	/*#Botones:hover {
-background-color: #000000;
-}*/
+    #info-alumno {
+        flex-direction: column;
+        text-align: center;
+    }
 
-	#Info_usuario1{
-		display: inline-block;
-		margin: 4px;
+    #info-alumno img {
+        margin-bottom: 10px;
+    }
 
-	}
+    #Acciones {
+        gap: 10px;
+    }
 
-	#Info_Cerrar_secion{
-		background: #0097B2;
-        font-size: 100%;
-		cursor: pointer;
-        border: none;
-        width: 75%;
-        border-radius: 25px;
-        margin: 4px 2px;
-	}
-	
+    #Acciones > div {
+        padding: 10px;
+    }
 
+    #Botones {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+
+
+/* Para telefono*/
+@media (max-width: 480px) {
+    #cabeza h1 {
+        font-size: 1.5em;
+    }
+
+    #Botones {
+        padding: 6px;
+        font-size: 12px;
+    }
 }

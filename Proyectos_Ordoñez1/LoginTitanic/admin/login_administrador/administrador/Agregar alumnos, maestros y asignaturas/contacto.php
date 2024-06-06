@@ -1,5 +1,6 @@
 <?php
-include ("conexion.php");
+include("conexion.php");
+
 Class Contacto extends Conexion {
 
     // Método para agregar correo y contraseña a la tabla login
@@ -24,6 +25,21 @@ Class Contacto extends Conexion {
     public function agregar_profesor_grupo($matricula_profesor, $id_grupo) {
         $this->sentencia = "INSERT INTO profesores_grupos (matricula_profesor, id_grupo) VALUES ($matricula_profesor, $id_grupo)";
         return $this->ejecutar_sentencia();
+    }
+
+    // Método para agregar asignaturas
+    public function agregar_asignatura($id_materia, $nombre, $matricula_profesor, $dia, $inicio, $fin) {
+        // Insertar en la tabla materias
+        $this->sentencia = "INSERT INTO materias (id_materia, nombre, matricula_profesor) VALUES ($id_materia, '$nombre', $matricula_profesor)";
+        $resultado = $this->ejecutar_sentencia();
+
+        if ($resultado) {
+            // Insertar en la tabla horarios
+            $this->sentencia = "INSERT INTO horarios (dia, inicio, fin, id_materia) VALUES ('$dia', '$inicio', '$fin', $id_materia)";
+            return $this->ejecutar_sentencia();
+        } else {
+            return false;
+        }
     }
 
     // Método para consultar los grupos
