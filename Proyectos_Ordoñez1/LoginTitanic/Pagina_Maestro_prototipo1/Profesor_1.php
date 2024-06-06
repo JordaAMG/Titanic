@@ -59,7 +59,7 @@
     <div class="section">
         <h2>Agregar</h2>
         <div class="button-group">
-            <form action="agregar_calificaciones.php" method="get">
+            <form action="agregar.php" method="get">
                 <input type="submit" value="Poner Calificaciones">
             </form>
             <form action="faltas.php" method="get">

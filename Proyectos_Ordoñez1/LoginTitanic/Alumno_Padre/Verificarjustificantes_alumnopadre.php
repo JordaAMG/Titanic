@@ -52,17 +52,16 @@ if (isset($_REQUEST["opc1"])) {
         $obj = new Contacto();
         $obj->Solicitud_JustificanteF1($Fecha_Justificante, $Fase_Justificante);
 
-        $resultado = $obj->verificar_Justificante($Fecha_Justificante);
-        if ($resultado && $resultado->num_rows > 0) {
-            echo "<table>";
-            echo "<tr><th>Estado en que se encuentra el Justificante</th></tr>";
-            while ($fila = $resultado->fetch_assoc()) {
-                echo "<tr><td>" . $fila["justificante"] . "</td></tr>";
-            }
-            echo "</table>";
-        } else {
-            echo "No se encontró ningún justificante para la fecha proporcionada.";
+        $obj->verificar_Justificante($Fecha_Justificante);
+        if($Fase_Justificante == 'Proceso'){
+            echo "$Fase_Justificante";
+        }else if($Fase_Justificante == 'Aceptado'){
+            echo "$Fase_Justificante";
+        }else if($Fase_Justificante == 'Rechazado'){
+            echo "$Fase_Justificante";
         }
+
+        
     }
 }
 ?>
