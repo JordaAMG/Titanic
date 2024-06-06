@@ -14,7 +14,6 @@
     </header>
 
     <div id="info-usuario">
-        <img src="icon_usuario.PNG" alt="Usuario" width="60px" height="60px">
         <div id="Info_usuario1">
             <p>Nombre del Alumno:</p>
                 <p>

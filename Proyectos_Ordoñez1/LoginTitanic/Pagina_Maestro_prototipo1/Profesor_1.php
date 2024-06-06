@@ -14,13 +14,12 @@
 
     <div class="info-usuario">
         <div id="Info_usuario">
-            <img src="icon_usuario.PNG" alt="Usuario" width="60px" height="60px">
             <div id="Info_usuario1">
                 <p>Nombre del Profesor:</p>
                 <p>
                     <?php
                         if (isset($_COOKIE['username'])) {
-                            $username = $_COOKIE['username'];
+                            $username = htmlspecialchars($_COOKIE['username']);
                             echo "$username";
                         } else {
                             echo "No se ha encontrado el nombre.";
@@ -31,7 +30,7 @@
                 <p>
                     <?php
                         if (isset($_COOKIE['matricula'])) {
-                            $matricula = $_COOKIE['matricula'];
+                            $matricula = htmlspecialchars($_COOKIE['matricula']);
                             echo "$matricula";
                         } else {
                             echo "No se ha encontrado la matrícula.";
