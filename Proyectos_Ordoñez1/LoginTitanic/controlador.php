@@ -1,6 +1,11 @@
 <?php
 include("conexion.php");
 
+if (isset($_POST["btn_regresar"])) {
+    header("Location: ../index/Index.php"); 
+    exit();
+}
+
 if (isset($_POST["btn_login"])) {
     $correo = $_POST['correo'];
     $contraseña = $_POST['contraseña'];
