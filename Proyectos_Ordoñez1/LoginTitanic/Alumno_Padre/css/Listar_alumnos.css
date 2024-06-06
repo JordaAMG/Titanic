@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f0ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    position: relative;
+    text-align: center;
+    background-color: #004080;
+    color: white;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 20px;
+}
+
+#btnSalir {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+#btnSalir:hover {
+    background-color: darkred;
+}
+
+#t {
+    margin: 0;
+    font-size: 24px;
+}
+
+#caja2 {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #004080;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #004080;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #e6f0ff;
+}
+
+tr:hover {
+    background-color: #d1e0ff;
+}
+
+footer#Pie_Pagina {
+    text-align: center;
+    background-color: #004080;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    border-radius: 0 0 8px 8px;
+}
