@@ -69,6 +69,7 @@
                 }
                 echo "</table>";
             }
+            echo "Erro de aqui";
             }
         }
                             
