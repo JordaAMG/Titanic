@@ -1,5 +1,12 @@
 <?php
 include("conexion.php");
+session_start();
+
+
+if (isset($_POST["btn_regresar"])) {
+    header("Location: ../index/Index.php"); 
+    exit();
+}
 
 if (isset($_POST["btn_login"])) {
     $correo = $_POST['correo'];
@@ -23,7 +30,6 @@ if (isset($_POST["btn_login"])) {
             $resultado_prof = $conexion->obtener_sentencia();
             
             if ($resultado_prof->num_rows > 0) {
-
                 $row_prof = $resultado_prof->fetch_assoc(); // Convertir la fila resultante en un array asociativo
 
                 setcookie("username", $row_prof['nombre_completo'], time() + (60 * 60 * 24 * 30), "/");
@@ -45,14 +51,48 @@ if (isset($_POST["btn_login"])) {
                     header("Location: Alumno_padre/Index_AlumnoPadre.php");
                     exit();
                 } else {
-                    // Usuario no encontrado en ninguna tabla
-                    echo "Usuario no encontrado.";
+                    $error_message = "Usuario no encontrado.";
                 }
             }
         }
     } else {
-        // Credenciales incorrectas
-        echo "Correo o contraseña incorrectos.";
+        $error_message = "Correo o contraseña incorrectos.";
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic x Montellano</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body class="cuerpo">
+    <form method="POST" action="">
+        <input id="btnregresar" type="submit" name="btn_regresar" value="Regresar">
+    </form>
+
+    <h1>Titanic X MONTELLANO</h1>
+
+    <div class="login">
+        <div class="login-box">
+            <h1>Inicio de Sesión</h1>
+            <?php
+            if (isset($error_message)) {
+                echo "<p class='error-message'>$error_message</p>";
+            }
+            ?>
+            <form method="POST" action="">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" name="correo" placeholder="Ingrese su correo" required>
+
+                <label for="password">Contraseña</label>
+                <input type="password" name="contraseña" id="password" placeholder="Ingrese su contraseña" required>
+                
+                <input type="submit" name="btn_login" value="Iniciar Sesión">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

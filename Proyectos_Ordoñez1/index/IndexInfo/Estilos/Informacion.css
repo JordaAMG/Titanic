@@ -74,6 +74,25 @@ body {
     width: 100%; 
     box-sizing: border-box; 
   }
+
+
+  
+  #d,#ma{
+     background-color: #1e3d7b;
+   }
+  #m{
+  color: white;
+  margin-top: 40px;
+  text-align: center;
+  background-color:#007bff ;
+}
+
+#i{
+  color: white;
+  margin-top: 150px;
+  text-align: center;
+background-color:#007bff ;
+}
   
   .copyright {
     text-align: center;
