@@ -14,8 +14,9 @@
     <?php
  			require_once("Contacto.php");
       $obj = new Contacto();
-      $Matricula_Alumno = 1;
-      $resultado= $obj->Listar_Alumnos($Matricula_Alumno);
+      $Matricula_Alumno = $_COOKIE['matricula'];
+      $Grupo_Alumno = $_COOKIE['Grupo'];
+      $resultado= $obj->Listar_Alumnos($Grupo_Alumno);
       echo "<table>";
       echo "<tr>";
       echo "<th>nombre_completo</th>";
@@ -23,8 +24,7 @@
       while($registro=$resultado->fetch_assoc()){
       	echo "<tr>";
       	echo "<td>".$registro["nombre_completo"]."</td>";
-          echo "<td></td>";
-      	
+        echo "<td></td>";
       	echo "</tr>";
 
       }

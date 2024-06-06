@@ -14,7 +14,8 @@
     <?php
         require_once("Contacto.php");
         $obj = new Contacto();
-        $Matricula_Alumno = 1;
+        $Matricula_Alumno = $_COOKIE['matricula'];
+        $Grupo_Alumno = $_COOKIE['Grupo'];
 
         $resultado = $obj->Listar_Profesores($Matricula_Alumno);
         if ($resultado->num_rows > 0) {

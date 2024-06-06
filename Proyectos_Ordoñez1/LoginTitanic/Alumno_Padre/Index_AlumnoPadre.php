@@ -17,7 +17,27 @@
         <img src="icon_usuario.PNG" alt="Usuario" width="60px" height="60px">
         <div id="Info_usuario1">
             <p>Nombre del Alumno:</p>
-            <p>Numero de cuenta:</p>
+                <p>
+                    <?php
+                        if (isset($_COOKIE['username'])) {
+                            $username = $_COOKIE['username'];
+                            echo "$username";
+                        } else {
+                            echo "No se ha encontrado el nombre.";
+                        }
+                    ?>
+                </p>
+                <p>Numero de cuenta:</p>
+                <p>
+                    <?php
+                        if (isset($_COOKIE['matricula'])) {
+                            $matricula = $_COOKIE['matricula'];
+                            echo "$matricula";
+                        } else {
+                            echo "No se ha encontrado la matrícula.";
+                        }
+                    ?>
+                </p>
         </div>
     </div>
 
@@ -49,7 +69,7 @@
                 </header>
                 <section id="Contenedor_Botones">
                     <a id="Botones" href="Listar_Faltas_AlumnoPadre.php">Listar Faltas de Asistencia</a>
-                    <a id="Botones" href="Justificantes_alumno.php">Verificar Justificante</a>
+                    <a id="Botones" href="Verificarjustificantes_alumnopadre.php">Verificar Justificante</a>
                 </section>
             </div>
         </article>

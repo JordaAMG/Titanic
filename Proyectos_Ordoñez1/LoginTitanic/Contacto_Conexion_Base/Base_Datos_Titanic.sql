@@ -8,7 +8,7 @@ CREATE TABLE login(
     contraseña VARCHAR(255)  
 );
 
-CREATE TABLE grupos (
+CREATE TABLE grupos(
     id_grupo INT AUTO_INCREMENT PRIMARY KEY,
     nombre_grupo VARCHAR(50),
     id_materia INT,

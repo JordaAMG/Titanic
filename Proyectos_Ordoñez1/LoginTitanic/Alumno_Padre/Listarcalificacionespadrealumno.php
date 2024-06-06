@@ -14,12 +14,30 @@
     <?php
  		require_once("Contacto.php");
       	$obj= new Contacto();
-      	$Matricula_Alumno = 1;
+      	$Matricula_Alumno = $_COOKIE['matricula'];
 
-        $resultado = $obj->Consultar_Calificaciones($Matricula_Alumno);
-        while ($registro = $resultado->fetch_assoc()) {
-            echo "<option value='".$registro['id_calificacion_parcial']."'>".$registro["parcial_uno"].".".$registro["parcial_dos"].".".$registro["parcial_tres"]."</option>";
-        }
+        $resultado = $obj->consultar_Materias($Matricula_Alumno); // Llama al método consultar_Materias de la clase Contacto
+    	if ($resultado->num_rows > 0) {
+        	while ($fila = $resultado->fetch_assoc()) {
+           		echo '<a href="?opc1=' . $fila["id_materia"] . '">' . $fila["nombre"] . '</a><br>';
+        	}
+    	} else {
+        	echo "El alumno no esta matriculado en ninguna materia.";
+    	}
+
+    	if (isset($_REQUEST["opc1"])) {
+        	$Materia_Elegida = $_REQUEST["opc1"];
+        	$resultado = $obj->Consultar_Calificaciones($Matricula_Alumno);
+                while ($registro = $resultado->fetch_assoc()) {
+                    echo "<option value='".$registro['id_calificacion_parcial']."'>".
+                    'Parcial I: '.
+                    $registro["parcial_uno"].".".
+                    '  '.'Parcial II: '.
+                    $registro["parcial_dos"].".".
+                    '  '.'Parcial III: '.
+                    $registro["parcial_tres"]."</option>";
+                }
+    	}
 
     ?>
          

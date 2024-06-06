@@ -14,7 +14,7 @@
     <?php
         require_once("Contacto.php");
         $obj = new Contacto();
-        $Matricula_Alumno = 1;
+        $Matricula_Alumno = $_COOKIE['matricula'];
 
         $resultado = $obj->Listar_Faltas($Matricula_Alumno);
         if ($resultado->num_rows > 0) {

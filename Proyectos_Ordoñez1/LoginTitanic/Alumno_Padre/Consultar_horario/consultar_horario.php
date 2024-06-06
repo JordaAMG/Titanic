@@ -15,9 +15,7 @@
         require_once 'Contacto.php';
         session_start();
 
-        // Asegúrate de que el alumno esté conectado
-        if (isset($_SESSION['matricula']) && isset($_SESSION['role']) && $_SESSION['role'] === 'alumno') {
-            $matricula_alumno = $_SESSION['matricula'];
+        $matricula_alumno = $_COOKIE['matricula'];
             $obj = new Contacto();
             $asignaturas = $obj->consultar_asignaturas_alumno($matricula_alumno);
 
@@ -46,9 +44,13 @@
                     echo "<p>No se encontró horario para esta asignatura.</p>";
                 }
             }
+
+        // Asegúrate de que el alumno esté conectado
+        /*if (isset($_SESSION['matricula']) && isset($_SESSION['role']) && $_SESSION['role'] === 'alumno') {
+            
         } else {
             echo "<p>No tienes permiso para ver esta página. Por favor, inicia sesión como alumno.</p>";
-        }
+        }*/
         ?>
     </div>
 </body>
