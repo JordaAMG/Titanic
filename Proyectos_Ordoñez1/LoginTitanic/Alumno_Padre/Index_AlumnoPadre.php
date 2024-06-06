@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colegio Montellano - Alumno</title>
-    <link rel="stylesheet" type="text/css" href="index_alumnopadre.css">
+    <link rel="stylesheet" type="text/css" href="Index_AlumnoPadre.css">
 </head>
 <body>
 <div id="agrupar">

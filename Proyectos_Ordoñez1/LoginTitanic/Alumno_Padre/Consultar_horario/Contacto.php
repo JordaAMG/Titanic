@@ -25,7 +25,5 @@ class Contacto extends Conexion {
         }
         return $resultado;
     }
-
-    // Otros métodos si los necesitas...
 }
 ?>
