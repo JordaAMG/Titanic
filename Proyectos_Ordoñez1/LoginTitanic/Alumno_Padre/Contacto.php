@@ -83,7 +83,7 @@
     public function verificar_Justificante($Fecha_Justificante){
         $this->sentencia = "SELECT justificante
         FROM asistencias
-        WHERE fecha = $Fecha_Justificante";
+        WHERE fecha = '$Fecha_Justificante'";
         $resultado = $this->obtener_sentencia();
         return $resultado;
     }

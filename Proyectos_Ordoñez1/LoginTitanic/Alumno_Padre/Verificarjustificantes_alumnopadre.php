@@ -27,53 +27,46 @@
         ?>
 
         <?php
-        if (isset($_REQUEST["opc1"])) {
-            ?>
-            <form action="" method="post" id="falta">
-            <p>Fechas en las que a faltado</p>
-            <select id="Lista_falta" name="Faltas_justificante" value="Fecha_Falta"> 
-            <?php
-            $Materia_Elegida = $_REQUEST["opc1"];
-            $resultado = $obj->Listar_Faltas($Matricula_Alumno);
-            if ($resultado->num_rows > 0) {
-            // Mostrar las faltas
-            echo "Fechas en las que a faltado";
-            while ($fila = $resultado->fetch_assoc()) {
-                echo "<option  value='" . $fila["fecha"] . "'>" . $fila["fecha"] . 
-                '<a href="?opc2=' . $fila["fecha"] . '">  </a>' .  
-                "</option>";
-            }
-            ?>
-            <input type="submit" id="btn_faltas" value="Pedir justificante" name="Pedir justificante">
-
-            <?php
-            }
-            if(isset($_REQUEST['Pedir justificante'])){
-                $Fecha_Justificante = $_REQUEST['Faltas_justificante'];
-                $Fase_Justificante = 'Proceso';
-
-                require_once("Contacto.php");
-                $obj = new Contacto();
-                $obj->Solicitud_JustificanteF1($Fecha_Justificante, $Fase_Justificante);
-
-                $resultado = $obj->verificar_Justificante($Fecha_Justificante);
-            if ($resultado->num_rows > 0) {
-                echo "<table>";
-                echo "<tr>";
-                echo "<th>Estado en que se encuentra el Justificante</th>";
-                echo "</tr>";
-                while ($fila = $resultado->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $fila["justificante"] . "</td>";
-                    echo "</tr>";
-                }
-                echo "</table>";
-            }
-            echo "Erro de aqui";
-            }
+if (isset($_REQUEST["opc1"])) {
+    ?>
+    <form action="" method="post" id="falta">
+    <p>Fechas en las que a faltado</p>
+    <select id="Lista_falta" name="Faltas_justificante" value="Fecha_Falta"> 
+    <?php
+    $Materia_Elegida = $_REQUEST["opc1"];
+    $resultado = $obj->Listar_Faltas($Matricula_Alumno);
+    if ($resultado->num_rows > 0) {
+        echo "Fechas en las que a faltado";
+        while ($fila = $resultado->fetch_assoc()) {
+            echo "<option value='" . $fila["fecha"] . "'>" . $fila["fecha"] . "</option>";
         }
-                            
         ?>
+        <input type="submit" id="btn_faltas" value="Pedir justificante" name="Pedir justificante">
+        <?php
+    }
+    if (isset($_REQUEST['Pedir justificante'])) {
+        $Fecha_Justificante = $_REQUEST['Faltas_justificante'];
+        $Fase_Justificante = 'Proceso';
+
+        require_once("Contacto.php");
+        $obj = new Contacto();
+        $obj->Solicitud_JustificanteF1($Fecha_Justificante, $Fase_Justificante);
+
+        $resultado = $obj->verificar_Justificante($Fecha_Justificante);
+        if ($resultado && $resultado->num_rows > 0) {
+            echo "<table>";
+            echo "<tr><th>Estado en que se encuentra el Justificante</th></tr>";
+            while ($fila = $resultado->fetch_assoc()) {
+                echo "<tr><td>" . $fila["justificante"] . "</td></tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "No se encontró ningún justificante para la fecha proporcionada.";
+        }
+    }
+}
+?>
+
         </select>
     </form>
 
