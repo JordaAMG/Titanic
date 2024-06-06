@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f0ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header#cabeza {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #004080;
+    color: white;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+}
+
+header#cabeza article {
+    display: flex;
+    align-items: center;
+}
+
+header#cabeza #Info_usuario {
+    display: flex;
+    align-items: center;
+}
+
+header#cabeza #Info_usuario #Info_usuario1 {
+    margin-left: 10px;
+}
+
+header#cabeza #Info_ListAlumn {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#Titulo_Principal {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 20px;
+    color: #004080;
+}
+
+.ingreso {
+    width: 80%;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.ingreso h1 {
+    text-align: center;
+}
+
+.ingreso a {
+    color: #004080;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.ingreso a:hover {
+    text-decoration: underline;
+}
+
+form .parcial {
+    margin-bottom: 15px;
+}
+
+form .parcial label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form .parcial input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form .parcial input[type="submit"] {
+    background-color: #004080;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form .parcial input[type="submit"]:hover {
+    background-color: #003366;
+}
+
+#volver {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: red;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+#volver a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}

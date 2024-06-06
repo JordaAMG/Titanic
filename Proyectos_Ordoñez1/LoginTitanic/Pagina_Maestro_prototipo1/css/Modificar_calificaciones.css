@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f0ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+#total {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+}
+
+#Titulo_Principal {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 20px;
+    color: #004080;
+}
+
+#Prinsipal {
+    width: 80%;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+header#cabeza {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #004080;
+    color: white;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+}
+
+header#cabeza article {
+    display: flex;
+    align-items: center;
+}
+
+header#cabeza #Info_usuario {
+    display: flex;
+    align-items: center;
+}
+
+header#cabeza #Info_usuario #Info_usuario1 {
+    margin-left: 10px;
+}
+
+header#cabeza #Info_ListAlumn {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#Acciones {
+    margin-top: 20px;
+}
+
+#Tabla0 {
+    background-color: #cce6ff;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+#Titulo_Tabla {
+    background-color: #004080;
+    color: white;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+}
+
+#Tabla0 section a {
+    color: #004080;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+#Tabla0 section a:hover {
+    text-decoration: underline;
+}
+
+footer#Pie_Pagina {
+    background-color: #004080;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 0 0 8px 8px;
+}
+
+#volver {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: red;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+#volver a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+form {
+    margin: 20px 0;
+}
+
+form .parcial {
+    margin-bottom: 15px;
+}
+
+form .parcial label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form .parcial input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="submit"] {
+    background-color: #004080;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #003366;
+}

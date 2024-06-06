@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso de Calificaciones</title>
-    <link rel="stylesheet" href="agregar.css">
+    <link rel="stylesheet" href="css/agregar_calificaciones.css">
 </head>
 <body>
 
 <header id="cabeza">
     <article id="Info_usuario">
-        <input id="Imagen0" type="image" src="icon_usuario.PNG" alt="Enviar" width="60px" height="60px">
         <a href=""></a>
         <div id="Info_usuario1">
             <p>Nombre del Profesor:</p>
@@ -35,19 +34,11 @@
     </article>
 
     <article id="Info_ListAlumn">
-        <div>
-            Listar Profesores:
-        </div>
-    </article>
-
-    <article id="cerrar_secion0">
-        <a href="?opc=cerrar_secion"> <li>Cerrar Secion</li> </a>
-        <input id="Imagen0" type="image" src="Icon_salir.PNG" alt="Enviar" width="30px" height="30px">
     </article>
 </header>
 
 <div class="ingreso">
-    <h1>Ingreso de Calificaciones</h1>
+    <h1 id="Titulo_Principal">Ingreso de Calificaciones</h1>
 
     <?php
     require_once("Contacto.php"); // Incluye el archivo Contacto.php que contiene la definición de la clase Contacto
@@ -107,7 +98,6 @@
             $calificacion_parcial_3 = $_POST["calificacion_parcial_3"];
 
             include("Conexion.php");
-            //$conexion = new Conexion();
 
             // Verificar existencia de calificaciones
             $query_existencia_calificaciones = "SELECT COUNT(*) AS num_filas FROM calificaciones WHERE matricula_alumno = $alumno_id AND id_materia = $materia_id";
@@ -156,5 +146,10 @@
     }
     ?>
 </div>
+
+<article id="volver">
+    <a href="../Pagina_Maestro_prototipo1/Profesor_1.php"> Volver</a>
+</article>
+
 </body>
 </html>

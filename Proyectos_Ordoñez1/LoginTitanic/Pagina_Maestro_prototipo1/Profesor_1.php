@@ -59,7 +59,7 @@
     <div class="section">
         <h2>Agregar</h2>
         <div class="button-group">
-            <form action="agregar.php" method="get">
+            <form action="agregar_calificaciones.php" method="get">
                 <input type="submit" value="Poner Calificaciones">
             </form>
             <form action="faltas.php" method="get">
@@ -71,7 +71,7 @@
     <div class="section">
         <h2>Modificar</h2>
         <div class="button-group">
-            <form action="Profesor_Modificar_Calificaciones.php" method="get">
+            <form action="Modificar_calificaciones.php" method="get">
                 <input type="submit" value="Modificar Calificaciones">
             </form>
             <form action="Modificar_Faltas_De_Asistencia.php" method="get">
